@@ -1,0 +1,162 @@
+/* navigation */
+.nav-head {
+    padding:0 80px;
+    margin-bottom: 40px;
+}
+
+.nav-head .nav-link{
+    margin-top: 25px;
+    margin-right: 87px;
+    color: #2E266F;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.nav-head .nav-link:hover {
+    text-decoration: underline;
+    color:#2E266F
+}
+
+/* profile box */
+.profile {
+    margin-top: 25px;
+    display: flex;
+    border-left: 7px solid #EFC81A;
+    height:97px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:10px;
+}
+
+.img-circle {
+    margin-right: 38px;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 44px;
+    background: url('../img/Ellipse\ 128.jpg'), lightgray 50% / cover no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.profile span{
+    align-items: center;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    line-height:normal;
+    text-transform: capitalize;
+}
+
+.profile span .profile-name{
+    font-weight: 400;
+    color: black;
+}
+
+.profile span .link-style {
+    text-decoration: none;
+}
+
+.profile span .link-style:hover {
+    text-decoration: underline;
+}
+
+.profile span .logout {
+    font-weight: 700;
+    color:black;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1280px) {
+
+    .nav-head {
+        padding:20px 20px;
+    }
+
+    .nav-head .nav-link {
+        margin-right: 40px;
+        margin-top: 0px;
+        font-size: 16px;
+    }
+
+    .img-circle {
+        margin-right: 13px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .profile {
+        margin-top: 0px;
+        height:40px;
+        padding:10px;
+        border-left: 3px solid #EFC81A;
+    }
+
+    .profile span {
+        font-size: 14px;
+    }
+}
+
+@media only screen and  (max-width: 991px) {
+
+
+    .nav-head {
+        padding: 10px 15px;
+    }
+
+    .nav-head .nav-link {
+        margin-right: 30px;
+        margin-top: 0px;
+        font-size: 14px; 
+    }
+
+    .img-circle {
+        margin-right: 10px; 
+        width: 28px; 
+        height: 28px; 
+    }
+
+    .profile {
+        margin-top: 0px;
+        height: 32px; 
+        padding: 8px; 
+        border-left: 2px solid #EFC81A; 
+    }
+
+    .profile span {
+        font-size: 12px; 
+    }
+
+}
+
+@media only screen and (max-width: 576px) {
+
+    .nav-head {
+        padding: 5px 8px;
+    }
+
+    .nav-head .nav-link {
+        margin-right: 16px;
+        margin-top: 0px;
+        font-size: 10px;
+    }
+
+    .img-circle {
+        margin-right: 6px;
+        width: 22px;
+        height: 22px;
+    }
+
+    .profile {
+        margin-top: 0px;
+        height: 28px;
+        padding: 6px;
+        border-left: 2px solid #EFC81A;
+    }
+
+    .profile span {
+        font-size: 8px;
+    }
+} 

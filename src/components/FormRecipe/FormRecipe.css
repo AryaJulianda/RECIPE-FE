@@ -1,0 +1,112 @@
+/* Add Image */
+.form-add-recipe {
+    margin:150px auto 0;
+    width: 1300px;
+    text-align: center;
+}
+
+.add-image {
+    position: relative;
+    background-color: #F6F5F4;;
+    width: 1300px;
+    /* height: 480px; */
+    flex-shrink: 0;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+}
+
+.add-image img {
+    width:500px;
+    margin: 100px 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.add-image .label-file-upload {
+    position: absolute;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 12px 24px;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background-color: #67e711;
+}
+
+.add-image input:hover {
+    text-decoration: underline;
+}
+
+.form-add-recipe .form-control:focus {
+    border-radius: 6px;
+    border: 1px solid #EFC81A;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+
+#title-form{
+    margin-top:40px ;
+    width: 1300px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #F6F5F4;
+    color: #666;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 20px;
+}
+
+
+#form-ingredients {
+    margin-top: 40px;
+    width: 1300px;
+    height: 380px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #F6F5F4;
+    color: #666;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 20px;
+}
+
+#form-category {
+    width: 243px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #F6F5F4;
+    color: #666;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 40px;
+    padding-left: 20px;
+    cursor:pointer;
+}
+
+#btn-add-recipe {
+    width: 426px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #EFC81A;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    margin:100px auto;
+}

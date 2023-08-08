@@ -1,0 +1,78 @@
+recipes
+.card {
+    border:none;
+    margin-top: 90px;
+    width: 900px;
+    height: 450px;
+}
+
+.img-card {
+    margin-right: 30px;
+}
+
+.img-card img {
+    height:450px;
+    width:450px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 357px;
+}
+
+.card-title {
+    color: #3F3A3A;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.card-text {
+    color: #3F3A3A;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    width: 250px;
+}
+
+.recipes .stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 325px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #EFC81A;
+}
+
+.stats span{
+    display: inline-block;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+}
+
+.card-btn button{    
+    font-weight: 500;
+    font-size:16px;
+    border-radius: 6px;  
+    color:#fff;
+    padding:10px 20px;
+    margin-top: 30px;
+}
+
+#edit-btn {
+    background-color: #30C0F3;    
+    color: #FFF;
+}
+
+#delete-btn {
+    background-color: #F57E71;
+    color:#FFF;
+} 

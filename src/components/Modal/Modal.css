@@ -1,0 +1,49 @@
+/* modal */
+
+#Modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+}
+
+.modal-body {
+    background: #FFF;
+    padding:40px 80px ;
+    width: 500px;
+    /* margin-left: -50px; */
+}
+
+.modal-body * {
+    margin: 20px 0;
+}
+
+.modal-body h5 {
+    color: #EFC81A;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.modal-body span {
+    /* color: #8692A6; */
+    color:rgb(231, 33, 33);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+}
+
+.modal-body button {
+    background-color: #EFC81A;
+    width: fit-content;
+    padding:20px 200px;
+    font-size: 16px;
+    color: #FFF;
+    font-weight: 500;
+}
+
+.modal-body button:hover {
+    background-color: #EFC81A;
+}

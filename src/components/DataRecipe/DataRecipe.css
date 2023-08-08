@@ -1,0 +1,110 @@
+.title {
+    font-size: 72px;
+    font-weight: 500;
+    color: #2E266F;
+    padding:60px 0;
+}
+
+.recipe-img {
+    text-align: center;
+    width: 1082px;
+    height: 700px;
+    background-color: rgb(100, 100, 100);
+    background-position: center;
+    background-size: cover;
+}
+
+.ingredients {
+    padding:100px 0 ;
+}
+
+.ingredients h5{
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.ingredients p {
+    font-size: 36px;
+}
+
+.icon .button {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    display:inline-block;
+    margin: 0 10px 50px 0;
+}
+
+.icon .bookmark{
+    background-color:#EFC81A ;
+    background-image: url(../img/bookmark.svg);
+    background-position: center;
+    background-size:32px;
+    background-repeat: no-repeat;
+}
+
+.icon .like{
+    background-color: #fff;
+    border:1px solid #EFC81A;
+    background-image: url(../img/Vector.svg);
+    background-position: center;
+    background-size:30px;
+    background-repeat: no-repeat;
+}
+
+.comment-text {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.comments-area {
+    flex-direction: column;
+    align-items:start;
+    border-top:3px solid #EFC81A ;
+    border-bottom:3px solid #EFC81A ;
+    padding:60px 0;
+    row-gap: 25px;
+    margin-bottom: 30px;
+}
+
+.data-recipe .comment {
+    align-items: center;
+}
+
+.data-recipe .comment .profile {
+    margin-top: 0;
+    padding-right: 20px;
+    border-left: none;
+    border-right: 3px solid #EFC81A;
+    margin-right: 20px;
+}
+
+.data-recipe .form-floating {
+    margin:37px 0;
+}
+
+.data-recipe #form-comment {
+    width: 813px;
+    height: 252px;
+    border-radius: 15px;
+    background: #F6F5F4;
+    border: none;
+}
+
+.data-recipe #form-comment:focus {
+    box-shadow: 5px 5px 20px #EFC81A ;
+}
+
+.data-recipe .btn-comment {
+    padding: 22px 148px;
+    font-size: 16px;
+    background-color: #FFB167;
+    border-radius: 5px;
+    color:#fff;
+    border:none;
+    margin-bottom:100px;
+}
+
+.data-recipe .btn-comment:hover {
+    background-color: #FFB167;
+}

@@ -1,0 +1,61 @@
+/* profile box */
+.profile {
+    margin-top: 28px;
+    display: flex;
+    border-left: 7px solid #EFC81A;
+    height:77px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.img-circle {
+    margin-right: 28px;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 44px;
+    background: url('../img/Ellipse\ 128.jpg'), lightgray 50% / cover no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.profile span{
+    align-items: center;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height:normal;
+    text-transform: capitalize;
+}
+
+.profile span a {
+    font-weight: 700;
+}
+
+header {
+    margin-top:100px;
+}
+
+header .profile {
+    margin-top: 0;
+}
+
+.profile span span {
+    font-weight: 700;
+}
+
+.detail {
+    justify-content: start;
+}
+
+header .stats {
+    margin-top: 24px;
+}
+
+.date h5 {
+    font-size: 24px;
+    text-align: end;
+    font-weight: 500;
+}

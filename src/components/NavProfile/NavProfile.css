@@ -1,0 +1,23 @@
+/* option */
+.nav-option {
+    border-bottom:15px solid #EFC81A;
+    margin-top: 50px;
+}
+
+.nav-option .navbar-nav .nav-link {
+        color: #B6B6B6;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 62px; /* 129.167% */
+        text-transform: capitalize;
+        margin: 10px 50px;
+}
+
+.nav-option .navbar-nav .nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-option .navbar-nav .active {
+    color:#000;
+}
