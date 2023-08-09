@@ -49,7 +49,8 @@ export default function DetailProfile () {
                 //console.log('Delete data successfully',res.data.data);
             })
             .catch(error => {
-                setModalMessage({header:'Delete recipe failed' , text: error.response.data.error });
+                setModalMessage({header:'Delete recipe failed' , text: error });
+                console.log(error)
                 handleShowModal();
                 // console.error("Gagal menghapus data:", error.response.data.error);
             });
