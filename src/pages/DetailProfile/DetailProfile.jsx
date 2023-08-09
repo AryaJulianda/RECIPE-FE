@@ -12,7 +12,8 @@ import ModalComponent from '../../components/Modal/Modal'
 
 import axios from 'axios';
 
-let token = import.meta.env.VITE_API_TOKEN;
+const serverUrl = import.meta.env.VITE_SERVER_URL;
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzYsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMzE2OTU0LCJleHAiOjE2OTE5MjE3NTR9.0NRl-1Pf2uwyzOroE0UArGCVRkzAuQMcli7zraUKW6o'
 
 export default function DetailProfile () {
     const [recipes,setRecipes] = useState([]);
@@ -22,7 +23,7 @@ export default function DetailProfile () {
     const [modalMessage, setModalMessage] = useState({});
 
     const getAllRecipe = async () => {
-        await axios.get('http://localhost:4000/recipe')
+        await axios.get(`${serverUrl}/recipe`)
             .then(res => { 
                 console.log('Get Data successfully',res.data);
                 setRecipes(res.data);
@@ -36,7 +37,7 @@ export default function DetailProfile () {
     },[])
 
     const handleDelete = (recipe_id) => {
-         axios.delete(`http://localhost:4000/recipe/${recipe_id}`,{
+         axios.delete(`${serverUrl}/recipe/${recipe_id}`,{
             headers: {
               Authorization: `Bearer ${token}`
             }

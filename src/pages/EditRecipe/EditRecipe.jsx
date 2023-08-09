@@ -7,7 +7,8 @@ import FormEditRecipe from "../../components/FormRecipe/FormEditRecipe";
 import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal';
 
-const token = import.meta.env.VITE_API_TOKEN;
+const serverUrl = import.meta.env.VITE_SERVER_URL;
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzYsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMzE2OTU0LCJleHAiOjE2OTE5MjE3NTR9.0NRl-1Pf2uwyzOroE0UArGCVRkzAuQMcli7zraUKW6o'
 
 export default function EditRecipe () {
 
@@ -27,7 +28,7 @@ export default function EditRecipe () {
     const [categoryId, setCategoryId] = useState('');
 
     const getRecipeById = async () => {
-        await axios.get('http://localhost:4000/recipe/'+ recipeId ,{
+        await axios.get(`${serverUrl}/recipe/`+ recipeId ,{
             headers :{
             Authorization : `Bearer ${token}`
         }})
@@ -75,7 +76,7 @@ export default function EditRecipe () {
         // console.log(formData.category_id);
         // console.log('ini form data',formData)
 
-        axios.put(`http://localhost:4000/recipe/${recipeId}`, formData, {
+        axios.put(`${serverUrl}/recipe/${recipeId}`, formData, {
             headers: {
               Authorization: `Bearer ${token}`,
               'Content-Type':'multipart/form-data' 
