@@ -2,7 +2,7 @@ import {useState,useEffect} from "react";
 import { useParams,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import Navbar from "../../components/navbar/navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import InfoProfile from '../../components/InfoProfile/InfoProfile';
 import Footer from '../../components/Footer/Footer';
 import DataRecipe from '../../components/DataRecipe/DataRecipe';

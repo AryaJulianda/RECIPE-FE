@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import { useParams,Link, useNavigate} from 'react-router-dom';
 // import { Modal } from 'react-bootstrap';
 
-import Navbar from "../../components/navbar/navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import InfoProfile from '../../components/InfoProfile/InfoProfile';
 import NavProfile from '../../components/NavProfile/NavProfile';
 import Recipes from '../../components/Recipes/Recipes';

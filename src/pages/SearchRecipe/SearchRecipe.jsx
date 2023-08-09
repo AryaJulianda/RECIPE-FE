@@ -1,8 +1,8 @@
 import React, {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
-import Navbar from '../../components/navbar/navbar';
-import Header from '../../components/Header/header';
+import Navbar from '../../components/Navbar/Navbar';
+import Header from '../../components/Header/Header';
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Cards from "../../components/Cards/Cards";
 import Pagination from '../../components/Pagination/Pagination';

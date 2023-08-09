@@ -2,7 +2,7 @@ import {useState,useEffect} from "react";
 import { useParams,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import Navbar from "../../components/navbar/navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import FormEditRecipe from "../../components/FormRecipe/FormEditRecipe";
 import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal';
