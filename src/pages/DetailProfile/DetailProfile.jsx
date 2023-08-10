@@ -12,23 +12,28 @@ import ModalComponent from '../../components/Modal/Modal'
 
 import axios from 'axios';
 
-const serverUrl = import.meta.env.VITE_SERVER_URL;
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzYsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMzE2OTU0LCJleHAiOjE2OTE5MjE3NTR9.0NRl-1Pf2uwyzOroE0UArGCVRkzAuQMcli7zraUKW6o'
-
 export default function DetailProfile () {
+
+    const serverUrl = import.meta.env.VITE_SERVER_URL;
+    const token = localStorage.getItem('access_token');
+
     const [recipes,setRecipes] = useState([]);
     const navigate = useNavigate();
+
+    const userId = localStorage.getItem('user_id');
 
     const [showModal,setShowModal]= useState(false);
     const [modalMessage, setModalMessage] = useState({});
 
     const getAllRecipe = async () => {
-        await axios.get(`${serverUrl}/recipe`)
+        await axios.get(`${serverUrl}/recipe/my_recipe/` + userId)
             .then(res => { 
                 console.log('Get Data successfully',res.data);
                 setRecipes(res.data);
             })
-            .catch(err => console.log('Get data failed',err.message))
+            .catch(err => {
+                console.log('Get data failed',err.response.data.message)
+            })
     }
 
     useEffect(()=> {

@@ -7,10 +7,10 @@ import FormEditRecipe from "../../components/FormRecipe/FormEditRecipe";
 import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal';
 
-const serverUrl = import.meta.env.VITE_SERVER_URL;
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzYsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMzE2OTU0LCJleHAiOjE2OTE5MjE3NTR9.0NRl-1Pf2uwyzOroE0UArGCVRkzAuQMcli7zraUKW6o'
-
 export default function EditRecipe () {
+
+    const serverUrl = import.meta.env.VITE_SERVER_URL;
+    const token = localStorage.getItem('access_token');
 
     const {recipeId} = useParams();
     const navigate = useNavigate();

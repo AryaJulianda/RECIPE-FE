@@ -1,3 +1,8 @@
+.empty {
+    text-align: left;
+    margin: 200px 350px;
+}
+
 #cards {
     margin-top: 70px;
 }

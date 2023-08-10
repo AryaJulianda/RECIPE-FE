@@ -1,0 +1,177 @@
+header {
+    margin:50px 0;
+    text-align: center;
+}
+
+header img {
+    width: 80px;
+}
+
+header .brand {
+    color: #EFC81A;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+header h1 {
+    color: #EFC81A;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 20px;
+}
+
+header h3 {
+    color: #8692A6;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+/* form */
+.login-form {
+    width: fit-content;
+    margin: auto;
+}
+
+.form-label {
+    color: #696F79;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: start;
+    margin-top: 20px;
+}
+
+.form-control {
+    width: 426px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1px solid #8692A6;
+    background: #FFF;
+}
+
+.input-field input:focus {
+    border-radius: 6px;
+    border: 1px solid #EFC81A;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+
+.input-field input::placeholder {
+    color: #a7afbd;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.form-check-label {
+    color: #696F79;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.form-check
+.form-check-input:checked {
+    background-color: #EFC81A;
+    border-color:#EFC81A
+}  
+
+form
+.login-button {
+    width: 426px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #EFC81A;
+    color: #fff;
+}
+
+form
+.login-button:hover {
+    background-color: #EFC81A;
+    color: #000;
+}
+
+.forgot-password {
+    margin-top: 10px;
+    color: #999;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.singup-here{
+    margin-top: 90px;
+    color: #999;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.forgot-password a,
+.singup-here a {
+    color: #EFC81A;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.forgot-password a:hover,
+.singup-here a:hover {
+    text-decoration: underline;
+}
+
+
+/* modal */
+.modal-body {
+    background: #FFF;
+    padding:40px 80px ;
+    width: fit-content;
+    margin-left: -50px;
+}
+
+.modal-body * {
+    margin: 20px 0;
+}
+
+.modal-body h5 {
+    color: #EFC81A;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.modal-body span {
+    color: #8692A6;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+}
+
+.modal-body button {
+    background-color: #EFC81A;
+    width: fit-content;
+    padding:20px 200px;
+    font-size: 16px;
+    color: #FFF;
+    font-weight: 500;
+}
+
+.modal-body button:hover {
+    background-color: #EFC81A;
+}

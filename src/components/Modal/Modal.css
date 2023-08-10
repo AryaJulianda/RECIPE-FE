@@ -26,8 +26,8 @@
 }
 
 .modal-body span {
-    /* color: #8692A6; */
-    color:rgb(231, 33, 33);
+    color: #8692A6;
+    /* color:rgb(231, 33, 33); */
     font-size: 22px;
     font-style: normal;
     font-weight: 600;
