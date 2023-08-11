@@ -1,12 +1,10 @@
 import React,{useState,useEffect} from "react"
 import { useNavigate } from 'react-router-dom'
+import { connect, useSelector } from 'react-redux';
+import {login} from '../../../actions/authAction';
 import './Login.css';
 
-import axios from 'axios';
-
-const Login = () => {
-
-    const url = import.meta.env.VITE_SERVER_URL;
+const Login = ({login}) => {
 
     const navigate = useNavigate();
     const [inputData, setInputData] = useState({
@@ -16,20 +14,8 @@ const Login = () => {
 
     const postData = (e) => {
         e.preventDefault()
-        console.log(inputData)
-        axios.post(url+`/auth/login`,inputData)
-            .then((res)=> {console.log(res)
-            let photo = res.data.user.photo;
-            if(photo === null){photo = '../img/default-photo-profile.jpg'}
-            localStorage.setItem("access_token",res.data.accessToken)
-            localStorage.setItem("refresh_token",res.data.refreshToken)
-            localStorage.setItem("user_id",res.data.user.user_id)
-            localStorage.setItem("username",res.data.user.username) 
-            localStorage.setItem("email",res.data.user.email)
-            localStorage.setItem("photo",photo)
-            navigate('/')
-            })
-            .catch((err)=>{alert(err.response.data.message)})
+        // console.log(inputData);
+        login(inputData,navigate)
     }
 
     const onChange = (e) => {
@@ -62,7 +48,7 @@ const Login = () => {
                         <input type="checkbox" className="form-check-input" id="check"/>
                         <label className="form-check-label" htmlFor="check">I agree to terms & conditions</label>
                     </div>
-                    <button type="button" className="btn login-button" data-bs-toggle="modal" data-bs-target="#verifModal" onClick={(e) => postData(e)} >Login</button>
+                    <button type="button" className="btn login-button" data-bs-toggle="modal" data-bs-target="#verifModal" onClick={postData} >Login</button>
                     <p className="forgot-password">Forgot your Password <a href="#">Click Here</a></p>
                 </form>
             </div>
@@ -72,4 +58,8 @@ const Login = () => {
     )
 };
 
-export default Login;
+const mapDispatch = {
+    login,
+}
+
+export default connect(null,mapDispatch)(Login);

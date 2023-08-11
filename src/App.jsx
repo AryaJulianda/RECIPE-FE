@@ -23,7 +23,8 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/regist' element={<Regist />} />
         <Route path='/activate' element={<UserActivation/>} /> 
-        <Route path='/search-recipe' element={ <AuthChecker> <SearchRecipe/> </AuthChecker>} />
+        {/* <Route path='/search-recipe' element={ <AuthChecker> <SearchRecipe/> </AuthChecker>} /> */}
+        <Route path='/search-recipe' element={<SearchRecipe/>}/>
         <Route path='/detail-profile' element={<DetailProfile/>} />
         <Route path='/add-recipe' element={<AddRecipe/>} />
         <Route path='/edit-recipe/:recipeId' element={<EditRecipe/>} />

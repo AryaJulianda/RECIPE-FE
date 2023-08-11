@@ -1,19 +1,16 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './Navbar.css';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
 
-  const handleLogout = () => {
-    localStorage.removeItem('username');
-    localStorage.removeItem('photo');
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
-    localStorage.removeItem('email');
-    localStorage.removeItem('user_id');
-  };
+  const dataUser = useSelector((state) => state.auth.user)
+  console.log(dataUser)
+  const navigate = useNavigate()
 
-  const userName = localStorage.getItem('username');
-  const photo = localStorage.getItem('photo');
+  const handleLogout = () => {
+    localStorage.clear();
+  };
 
   return (
     <nav className="nav-head navbar navbar-expand">
@@ -31,13 +28,17 @@ const Navbar = () => {
           </ul>
 
 
-            <div className="profile">
-                  <div className="img-circle" style={{backgroundImage:`url(${photo})`}}></div>
-                  <span>
-                    <Link to='/detail-profile' className='link-style profile-name'>{userName}</Link><br />
-                    <Link className='link-style logout' onClick={handleLogout} to='/login' >Logout</Link>
-                  </span>
-            </div>
+            {localStorage.getItem('access_token')?
+            <div className="profile">                                 
+                <div className="img-circle" style={{backgroundImage:`url(${dataUser?.photo === null? './img/default-photo-profile.jpg':dataUser.photo})`}}></div> 
+                <span>                                
+                  <Link to='/detail-profile' className='link-style profile-name'>{dataUser?.username}</Link>                 
+                   <br />
+                  <Link className='link-style logout' onClick={handleLogout} to='/login' >Logout</Link>
+                </span>
+            </div>:
+            null
+            }
       </div>    
     </nav>
   );
