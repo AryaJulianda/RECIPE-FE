@@ -8,37 +8,31 @@ import Cards from "../../components/Cards/Cards";
 import Pagination from '../../components/Pagination/Pagination';
 import Footer from "../../components/Footer/Footer";
 
-import axios from 'axios';
-
-const serverUrl = import.meta.env.VITE_SERVER_URL;
+import { useDispatch, useSelector } from "react-redux";
+import { getAllRecipes } from "../../actions/recipeAction";
 
 export default function SearchRecipe () {
-    const [recipes,setRecipes] = useState([]);
-    const [searchQuery, setSearchQuery] = useState('');
-    const navigate = useNavigate()
 
-    const getAllRecipe = (query = '') => {
-        const url = query ? `${serverUrl}/recipe/search?key=` + query : `${serverUrl}/recipe`
-            axios.get(url)
-                .then(res => { 
-                    // console.log('Get Data successfully :' , res.data);
-                    res.data === '' ? alert('Recipe not found') : setRecipes(res.data);
-                })
-                .catch(err => console.log('Get data failed',err))
-    }
+    const [searchQuery,setSearchQuery] = useState('');
+    const {recipes,isLoading,isError} = useSelector((state)=> state.recipes);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(()=> {
-        getAllRecipe();
-        // console.log('Get all data success:',recipes);
+        dispatch(getAllRecipes());
     },[])
+
+    useEffect(()=>{
+        searchQuery.length >= 3 && dispatch(getAllRecipes(searchQuery))
+        searchQuery == '' &&  dispatch(getAllRecipes())
+      },[searchQuery])
 
     const handleChange = (e) => {
         setSearchQuery(e.target.value);
-        // console.log(e.target.value)
     }
 
     const handleSubmit = () => {
-        getAllRecipe(searchQuery);
+        dispatch(getAllRecipes(searchQuery));
     }
 
     const handleClick = (recipeId) => {

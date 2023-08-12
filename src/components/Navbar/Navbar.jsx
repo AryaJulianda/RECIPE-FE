@@ -30,7 +30,7 @@ const Navbar = () => {
 
             {localStorage.getItem('access_token')?
             <div className="profile">                                 
-                <div className="img-circle" style={{backgroundImage:`url(${dataUser?.photo === null? './img/default-photo-profile.jpg':dataUser.photo})`}}></div> 
+                <div className="img-circle" style={{backgroundImage:`url(${dataUser?.photo === null? './default-photo-profile.jpg':dataUser.photo})`}}></div> 
                 <span>                                
                   <Link to='/detail-profile' className='link-style profile-name'>{dataUser?.username}</Link>                 
                    <br />

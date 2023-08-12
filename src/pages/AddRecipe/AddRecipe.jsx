@@ -7,16 +7,15 @@ import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal';
 
 import axios from 'axios';
+import { useDispatch, useSelector } from "react-redux";
+import { postRecipe } from "../../actions/recipeAction";
 
 
 const AddRecipe = () => {
-
-    const serverUrl = import.meta.env.VITE_SERVER_URL;
-    const token = localStorage.getItem('access_token');
     
     const navigate = useNavigate();
-    const [showModal,setShowModal]= useState(false);
-    const [modalMessage, setModalMessage] = useState({});
+    const dispatch = useDispatch();
+    const {showModal,modalMessage} = useSelector((state)=>state.recipes)
 
     const [categoryId, setCategoryId] = useState(null);
     const [recipeImage,setRecipeImage] = useState({});
@@ -33,7 +32,6 @@ const AddRecipe = () => {
         }));
     }
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -44,29 +42,11 @@ const AddRecipe = () => {
         formData.append('img',recipeImage.send);
         // console.log('ini form data',formData)
 
-        axios.post(`${serverUrl}/recipe`, formData, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              'Content-Type':'multipart/form-data' 
-            }
-          }).then((res) => {
-                // console.log('Post recipe Successfully :',res.data);
-                setModalMessage({header:'Add recipe successfuly'})
-                handleShowModal();
-            })
-            .catch((err) => {
-                // console.error('Post recipe Failed',err.message);
-                setModalMessage({header:'Add recipe failed',text:err.message})
-                handleShowModal();
-            })
-    }
-
-    const handleShowModal = () => {
-        setShowModal(true);
+        dispatch(postRecipe(formData))
     }
 
     const handleCloseModal = () => {
-        setShowModal(false);
+        dispatch({type:"CLOSE_MODAL"});
         navigate('/detail-profile');
     }
 

@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from "react";
 import { useParams,Link, useNavigate} from 'react-router-dom';
-// import { Modal } from 'react-bootstrap';
 
 import Navbar from "../../components/Navbar/Navbar";
 import InfoProfile from '../../components/InfoProfile/InfoProfile';
@@ -11,67 +10,33 @@ import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal'
 
 import axios from 'axios';
+import { useDispatch, useSelector } from "react-redux";
+import { deleteRecipe, getAllRecipesById } from "../../actions/recipeAction";
 
 export default function DetailProfile () {
 
-    const serverUrl = import.meta.env.VITE_SERVER_URL;
-    const token = localStorage.getItem('access_token');
-
-    const [recipes,setRecipes] = useState([]);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const userId = localStorage.getItem('user_id');
-
-    const [showModal,setShowModal]= useState(false);
-    const [modalMessage, setModalMessage] = useState({});
-
-    const getAllRecipe = async () => {
-        await axios.get(`${serverUrl}/recipe/my_recipe/` + userId)
-            .then(res => { 
-                console.log('Get Data successfully',res.data);
-                setRecipes(res.data);
-            })
-            .catch(err => {
-                console.log('Get data failed',err.response.data.message)
-            })
-    }
+    const recipes = useSelector((state)=>state.recipes.myRecipes);
+    
+    const {showModal,modalMessage} = useSelector((state)=> state.recipes)
 
     useEffect(()=> {
-        getAllRecipe();
-        // console.log('Get all data success:',recipes);
+        dispatch(getAllRecipesById())
     },[])
 
-    const handleDelete = (recipe_id) => {
-         axios.delete(`${serverUrl}/recipe/${recipe_id}`,{
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          })
-            .then(res => {
-                setModalMessage({header:'Delete recipe successfuly'})
-                getAllRecipe();
-                handleShowModal();
-                //console.log('Delete data successfully',res.data.data);
-            })
-            .catch(error => {
-                setModalMessage({header:'Delete recipe failed'});
-                console.log(error)
-                handleShowModal();
-                // console.error("Gagal menghapus data:", error.response.data.error);
-            });
+    const handleDelete = (recipeId) => {
+        dispatch(deleteRecipe(recipeId))
     };
 
     const handleEdit = (recipeId) => {
-        // console.log(`/edit-recipe/${recipeId}`);
         navigate(`/edit-recipe/${recipeId}`);
     }
 
-    const handleShowModal = () => {
-        setShowModal(true);
-    }
-
     const handleCloseModal = () => {
-        setShowModal(false);
+        dispatch({type:'CLOSE_MODAL'});
+        dispatch(getAllRecipesById())
     }
 
     return(

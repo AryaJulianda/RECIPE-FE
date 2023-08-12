@@ -2,7 +2,7 @@ import React from "react";
 import '../Cards/Cards.css';
 
 const Recipes = ({ recipes,handleDelete,handleEdit,onClick}) => {
-    console.log(recipes)
+    // console.log(recipes)
     if(recipes.length==0) {
         return <h1 className="empty">Empty Recipe</h1>
     }

@@ -27,7 +27,11 @@ export const authReducer = (state=initialState,action) => {
     case 'LOGIN_FAILED':
       // console.log(action.error)
       return {
-        ...state,error:action.error,isError:true,user:null,isLoading:false
+        ...state,
+        error:action.error,
+        isError:true,
+        showModal:true,
+        modalMessage:action.modalMessage
       }
     case 'REGIST_SUCCESS':
       console.log(action)

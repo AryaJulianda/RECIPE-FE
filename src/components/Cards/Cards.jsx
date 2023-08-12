@@ -4,7 +4,8 @@ import './Cards.css';
 const Cards = ({ recipes,onClick}) => {
     return (
         <div id="cards">
-            {recipes?.map((recipe) => {
+            {recipes ?
+            recipes?.map((recipe) => {
                 return (
                     <div className="card" key={recipe.recipe_id} onClick={() => {onClick(recipe.recipe_id)}} >
                         <div className="row g-0">
@@ -30,7 +31,8 @@ const Cards = ({ recipes,onClick}) => {
                     </div>
               
                 )
-            })}
+            }) : <h1>Recipe not Found :(</h1>
+            }
         </div>
     );
 };
