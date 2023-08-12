@@ -1,48 +1,24 @@
-// import React from "react"
-// import { useParams,useNavigate } from "react-router-dom";
-// import axios from "axios";
-
-// const UserActivation = () => {
-
-//     const navigate = useNavigate();
-//     const {token} = useParams()
-//     const serverUrl = import.meta.env.VITE_SERVER_URL;
-
-//     axios.get(`${serverUrl}/auth/activate/` + token)
-//     .then(res => { 
-//         console.log('Activation acount successfully'.res.data);
-//         setRecipes(res.data);
-//         navigate('/regist')
-//     })
-//     .catch(err => {
-//         console.log('User Activation failed',err)
-//     })
- 
-//     return <h1>{token}</h1>
-// };
-
-// export default UserActivation;
-
 import React, { useEffect } from "react";
 import { useParams, useNavigate,useLocation } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 const UserActivation = () => {
     const location = useLocation();
+    const dispatch = useDispatch();
     const queryParams = new URLSearchParams(location.search);
 
     // Mengambil nilai parameter query
     const token = queryParams.get("token");
-    console.log(token)
+    // console.log(token)
     const navigate = useNavigate();
-    // const { token } = useParams();
     const serverUrl = import.meta.env.VITE_SERVER_URL;
 
     useEffect(() => {
         axios.get(`http://localhost:4000/auth/activate/` + token)
             .then(res => { 
                 console.log('Activation account successfully', res.data);
-                // Perform any necessary actions with the response data
+                dispatch({type:'ACTIVATION_SUCCESS',modalMessage:{header:'Account has been set up',text:'Account activated successfully, please login'}})
                 navigate('/login');
             })
             .catch(err => {

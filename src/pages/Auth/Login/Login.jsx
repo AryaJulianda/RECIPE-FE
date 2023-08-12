@@ -1,11 +1,14 @@
 import React,{useState,useEffect} from "react"
 import { useNavigate } from 'react-router-dom'
-import { connect, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import {login} from '../../../actions/authAction';
+import ModalComponent from '../../../components/Modal/Modal';
 import './Login.css';
 
 const Login = ({login}) => {
 
+    const {showModal,modalMessage} = useSelector((state) => state.auth)
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [inputData, setInputData] = useState({
         email:'',
@@ -22,6 +25,11 @@ const Login = ({login}) => {
         setInputData({...inputData,
         [e.target.name]:e.target.value
         })
+    }
+
+    const handleCloseModal = () => {
+        dispatch({type:"CLOSE_MODAL"})
+        console.log('harusnya nutup')
     }
 
     return (
@@ -53,6 +61,7 @@ const Login = ({login}) => {
                 </form>
             </div>
             <p className="singup-here text-center">Don't have an account? <a href="#">Sing up Here</a></p>
+            <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
         </main>
         </div>
     )

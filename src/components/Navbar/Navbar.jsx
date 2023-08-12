@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
 
   const dataUser = useSelector((state) => state.auth.user)
-  console.log(dataUser)
+  // console.log(dataUser)
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -17,10 +17,10 @@ const Navbar = () => {
       <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" href="">Regist</Link>
+              <Link className="nav-link" to='/regist'>Regist</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Login</Link>
+              <Link className="nav-link" to='/login'>Login</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to='/search-recipe'>Search Menu</Link>

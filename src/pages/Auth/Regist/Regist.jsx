@@ -1,16 +1,15 @@
 import React,{useState} from "react";
 import { useNavigate } from "react-router";
-import './Regist.css';
 import ModalComponent from '../../../components/Modal/Modal';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import {login,regist}  from '../../../actions/authAction';
+import './Regist.css';
 
-import axios from 'axios';
+const Regist = ({regist}) => {
 
-const Regist = () => {
-    const url = import.meta.env.VITE_SERVER_URL;
-
+    const {showModal,modalMessage} = useSelector((state) => state.auth)
     const navigate = useNavigate();
-    const [showModal,setShowModal]= useState(false);
-    const [modalMessage, setModalMessage] = useState({});
+    const dispatch = useDispatch();
 
     const [inputData, setInputData] = useState({
         username:'',
@@ -20,21 +19,8 @@ const Regist = () => {
 
     const postData = (e) => {
         e.preventDefault()
-        console.log(inputData)
-        axios.post(url+`/auth/register`,inputData)
-            .then((res)=> {
-                console.log(res)
-                setModalMessage({header:'You are all set!',text:'Please check your email account for verification'})
-                handleShowModal();
-            })
-            .catch((err)=>{
-                console.log(err)
-                setModalMessage({header:'Regist failed'})
-                handleShowModal();
-            })
+        regist(inputData);
     }
-
-    
 
     const onChange = (e) => {
         setInputData({...inputData,
@@ -42,13 +28,8 @@ const Regist = () => {
         })
     }
 
-    const handleShowModal = () => {
-        setShowModal(true);
-    }
-
     const handleCloseModal = () => {
-        setShowModal(false);
-        // navigate('/login');
+        dispatch({type:"CLOSE_MODAL"})
     }
 
   return (
@@ -90,4 +71,8 @@ const Regist = () => {
   )
 };
 
-export default Regist;
+const mapDispatch = {
+    regist,
+}
+
+export default connect(null,mapDispatch)(Regist);
