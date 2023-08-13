@@ -15,29 +15,42 @@ const Navbar = () => {
   return (
     <nav className="nav-head navbar navbar-expand">
       <div className="container-fluid">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to='/regist'>Regist</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to='/login'>Login</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to='/search-recipe'>Search Menu</Link>
-            </li>
-          </ul>
-
+          {!localStorage.getItem('access_token')?
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link className="nav-link" to='/regist'>Regist</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to='/login'>Login</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to='/search-recipe'>Search Menu</Link>
+              </li>
+            </ul> 
+              :
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link className="nav-link" to='/'>Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to='/add-recipe'>Add Recipe</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to='/detail-profile'>Profile</Link>
+              </li>
+            </ul>
+          }
 
             {localStorage.getItem('access_token')?
-            <div className="profile">                                 
-                <div className="img-circle" style={{backgroundImage:`url(${dataUser?.photo === null? './default-photo-profile.jpg':dataUser.photo})`}}></div> 
-                <span>                                
-                  <Link to='/detail-profile' className='link-style profile-name'>{dataUser?.username}</Link>                 
-                   <br />
-                  <Link className='link-style logout' onClick={handleLogout} to='/login' >Logout</Link>
-                </span>
-            </div>:
-            null
+              <div className="profile">                                 
+                  <div className="img-circle" style={{backgroundImage:`url(${dataUser?.photo === null? './default-photo-profile.jpg':dataUser.photo})`}}></div> 
+                  <span>                                
+                    <Link to='/detail-profile' className='link-style profile-name'>{dataUser?.username}</Link>                 
+                    <br />
+                    <Link className='link-style logout' onClick={handleLogout} to='/login' >Logout</Link>
+                  </span>
+              </div> :
+              null
             }
       </div>    
     </nav>

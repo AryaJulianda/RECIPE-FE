@@ -14,18 +14,20 @@ import { getAllRecipes } from "../../actions/recipeAction";
 export default function SearchRecipe () {
 
     const [searchQuery,setSearchQuery] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const limit = 2;
     const {recipes,isLoading,isError} = useSelector((state)=> state.recipes);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(()=> {
-        dispatch(getAllRecipes());
-    },[])
+        dispatch(getAllRecipes(searchQuery,currentPage,limit));
+    },[currentPage,limit])
 
     useEffect(()=>{
-        searchQuery.length >= 3 && dispatch(getAllRecipes(searchQuery))
-        searchQuery == '' &&  dispatch(getAllRecipes())
-      },[searchQuery])
+        searchQuery.length >= 3 && dispatch(getAllRecipes(searchQuery,currentPage,limit))
+        searchQuery == '' &&  dispatch(getAllRecipes(searchQuery,currentPage,limit))
+      },[searchQuery,currentPage,limit])
 
     const handleChange = (e) => {
         setSearchQuery(e.target.value);
@@ -39,6 +41,23 @@ export default function SearchRecipe () {
         navigate(`/detail-recipe/${recipeId}`)
     }
 
+    // // Pagination
+    // const totalPages = Math.ceil(recipes.totalCount / limit);
+
+    // const handlePageChange = (newPage) => {
+    //     if (newPage >= 1 && newPage <= totalPages) {
+    //         setCurrentPage(newPage);
+    //     }
+    // };
+
+    const onNext = () => {
+        setCurrentPage(currentPage + 1)
+    }
+
+    const onPrev = () => {
+        setCurrentPage(currentPage - 1)
+    }
+
     return (
         <>
             <Navbar/>
@@ -50,7 +69,7 @@ export default function SearchRecipe () {
                     onSubmit={handleSubmit}
                 />
                 <Cards recipes={recipes} onClick={handleClick}/>
-                <Pagination/>
+                <Pagination onNext={onNext} onPrev={onPrev}/>
             </main>
             <Footer/>
         </>

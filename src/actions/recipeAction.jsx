@@ -16,9 +16,10 @@ export const getRecipeById = (recipeId) => {
     };
 };
 
-export const getAllRecipes = (query = '') => {
+export const getAllRecipes = (query = '', currentPage, limit = 2) => {
     return async(dispatch) => {
-        const url = query ? `${serverUrl}/recipe/search?key=${query}` : `${serverUrl}/recipe`;
+      console.log(query)
+      const url = query ? `${serverUrl}/recipe/search?key=${query}&page=${currentPage}&limit=${limit}` : `${serverUrl}/recipe?page=${currentPage}&limit=${limit}`;
         try {
           dispatch({type:'PENDING'})
           const res = await axios.get(url);
@@ -56,6 +57,23 @@ export const postRecipe = (inputData) => {
       dispatch({type:'POST_RECIPE_SUCCESS',payload:res.data})
     } catch (error) {
       dispatch({type:'POST_RECIPE_FAILED',error:error.message})
+    }
+  }
+}
+
+export const updateRecipe = (recipeId,inputData) => {
+  return async(dispatch) => {
+    
+    try {
+      dispatch({type:'PENDING'})
+      const res = await axios.put(`${serverUrl}/recipe/` + recipeId, inputData,{
+        headers:{
+          Authorization:`Bearer ${localStorage.getItem('access_token')}`,
+          'Content-Type':'multipart/form-data'
+        }})
+      dispatch({type:'PUT_RECIPE_SUCCESS',payload:res.data})
+    } catch (error) {
+      dispatch({type:'PUT_RECIPE_FAILED',error:error.message})
     }
   }
 }

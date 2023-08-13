@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import './FormRecipe.css';
 
-const FormEditRecipe = ({recipe,onChange,onSubmit,handleChangeImage,setCategoryId,categoryId,showImage}) => {
+const FormEditRecipe = ({inputRecipe,onChange,onSubmit,handleChangeImage,setCategoryId,categoryId,showImage}) => {
     return (
         <div className="form-add-recipe">
             <div className="add-image d-flex">
@@ -10,9 +10,9 @@ const FormEditRecipe = ({recipe,onChange,onSubmit,handleChangeImage,setCategoryI
                 <input type="file" id="file-upload" onChange={(e) => handleChangeImage(e)}/>
             </div>
         
-            <input type="text" className="form-control" id="title-form" placeholder="Title" name='title' value={recipe.title} onChange={onChange} />
+            <input type="text" className="form-control" id="title-form" placeholder="Title" name='title' value={inputRecipe.title} onChange={onChange} />
 
-            <textarea className="form-control" id="form-ingredients" placeholder="Ingredients" name="ingredients" value={recipe.ingredients} onChange={onChange} ></textarea>
+            <textarea className="form-control" id="form-ingredients" placeholder="Ingredients" name="ingredients" value={inputRecipe.ingredients} onChange={onChange} ></textarea>
 
             <select className="form-control" id="form-category" value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>;
                 <option value="">Select Category</option>

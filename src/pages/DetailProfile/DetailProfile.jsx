@@ -30,6 +30,7 @@ export default function DetailProfile () {
     };
 
     const handleEdit = (recipeId) => {
+        // dispatch(getRecipeById(recipeId))
         navigate(`/edit-recipe/${recipeId}`);
     }
 

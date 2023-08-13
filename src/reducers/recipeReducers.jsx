@@ -72,6 +72,25 @@ export const recipeReducer = (state = initialState, action) => {
           }
         }
 
+      // put recipe
+      case 'PUT_RECIPE_SUCCESS':
+        return {
+            ...state,
+            showModal:true,
+            modalMessage:{
+              header:"Edit Recipe Successfully"
+            }
+        };
+      case 'PUT_RECIPE_FAILED':
+        return {
+          ...state,
+          isError: true,
+          showModal:true,
+          modalMessage:{
+            header:'Edit Recipe failed'
+          }
+        }
+
       //delete recipe
       case 'DELETE_RECIPE_SUCCESS':
         return {
