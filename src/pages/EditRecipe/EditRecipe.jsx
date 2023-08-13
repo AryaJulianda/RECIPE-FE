@@ -6,60 +6,52 @@ import Navbar from "../../components/Navbar/Navbar";
 import FormEditRecipe from "../../components/FormRecipe/FormEditRecipe";
 import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal';
+import { useDispatch, useSelector } from "react-redux";
+import { getRecipeById } from "../../actions/recipeAction";
 
 export default function EditRecipe () {
 
-    const serverUrl = import.meta.env.VITE_SERVER_URL;
-    const token = localStorage.getItem('access_token');
-
     const {recipeId} = useParams();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [showModal,setShowModal]= useState(false);
-    const [modalMessage, setModalMessage] = useState({});
-    // console.log('ini recipe id',recipeId)
+    const {showModal,modalMessage} = useSelector((state)=> state.recipes)
 
+    const {recipe} = useSelector((state) => state.recipes)
+    const [isRecipeLoaded, setIsRecipeLoaded] = useState(false); 
 
     const [recipeImage,setRecipeImage] = useState(null);
     const [showImage,setShowImage] = useState(null);
-    const [recipe, setRecipe] = useState({
+    const [inputRecipe, setInputRecipe] = useState({
         title:"",
         ingredients:""
     }) 
     const [categoryId, setCategoryId] = useState('');
-
-    const getRecipeById = async () => {
-        await axios.get(`${serverUrl}/recipe/`+ recipeId ,{
-            headers :{
-            Authorization : `Bearer ${token}`
-        }})
-            .then(res => { 
-                // console.log('Get Data successfully :' , res.data);
-                setRecipe({
-                    ...recipe,
-                    title:res.data.title,
-                    ingredients:res.data.ingredients
-                });
-
-                setCategoryId(res.data.category_id);
-                setRecipeImage(res.data.img);
-                setShowImage(res.data.img);
-            })
-            .catch(err => console.log('Get data failed',err.response.data.message))
-    }
+    
+    useEffect(() => {
+        dispatch(getRecipeById(recipeId));
+    }, [dispatch, recipeId]);
 
     useEffect(() => {
-        // console.log(recipe)
-        getRecipeById();
-    },[]);
-
+        if (recipe && !isRecipeLoaded) {
+            setInputRecipe({
+                ...inputRecipe,
+                title: recipe.title,
+                ingredients: recipe.ingredients
+            });
+            setCategoryId(recipe.category_id);
+            setRecipeImage(recipe.img);
+            setShowImage(recipe.img);
+    
+            setIsRecipeLoaded(true);
+        }
+    }, [recipe, isRecipeLoaded]);
 
     const handleChange = (event) => {
         const {name,value} = event.target;
-        setRecipe((prevRecipe) => ({
+        setInputRecipe((prevRecipe) => ({
             ...prevRecipe,
             [name]: value,
         }));
-        // console.log(recipe,recipeImage)
     }
 
     const handleSubmit = (event) => {
@@ -68,8 +60,8 @@ export default function EditRecipe () {
         // if(recipeImage===null) {setRecipeImage(recipe.img)};;
 
         const formData = new FormData();
-        formData.append('title',recipe.title);
-        formData.append('ingredients',recipe.ingredients);
+        formData.append('title',inputRecipe.title);
+        formData.append('ingredients',inputRecipe.ingredients);
         formData.append('category_id',categoryId);
         formData.append('img',recipeImage);
 
@@ -93,10 +85,6 @@ export default function EditRecipe () {
             })
     }
 
-    const handleShowModal = () => {
-        setShowModal(true);
-    }
-
     const handleCloseModal = () => {
         setShowModal(false);
         navigate('/detail-profile');
@@ -115,7 +103,7 @@ export default function EditRecipe () {
                 <FormEditRecipe 
                     recipe={recipe}
                     onChange={handleChange}
-                    onSubmit={handleSubmit}
+                    // onSubmit={handleSubmit}
                     handleChangeImage={handleChangeImage}
                     showImage={showImage}
                     setCategoryId={setCategoryId}
@@ -123,7 +111,7 @@ export default function EditRecipe () {
                 />  
             </main>
             <Footer />
-            <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
+            {/* <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/> */}
         </>
     );
 };

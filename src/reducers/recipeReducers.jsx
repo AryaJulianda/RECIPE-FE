@@ -1,5 +1,6 @@
 const initialState = {
   recipes: [],
+  recipe:{},
   myRecipes:[],
   isError:false,
   isLoading : false,
@@ -15,6 +16,19 @@ export const recipeReducer = (state = initialState, action) => {
             ...state,
             isLoading:true,
         };
+      //get recipe by recipe id
+      case 'GET_RECIPE_SUCCESS':
+        return {
+            ...state,
+            recipe: action.payload,
+        };
+      case 'GET_RECIPE_FAILED':
+        return {
+          ...state,
+          isError: true
+        }
+
+      // get all recipes
       case 'GET_RECIPES_SUCCESS':
         return {
             ...state,
@@ -26,6 +40,7 @@ export const recipeReducer = (state = initialState, action) => {
           isError: true
         }
 
+      // get recipes by user id
       case 'GET_RECIPES_BY_ID_SUCCESS':
         return {
             ...state,
@@ -34,9 +49,11 @@ export const recipeReducer = (state = initialState, action) => {
       case 'GET_RECIPES_BY_ID_FAILED':
         return {
           ...state,
+          myRecipes: [],
           isError: true
         }
 
+      // post recipe
       case 'POST_RECIPE_SUCCESS':
         return {
             ...state,
@@ -55,6 +72,7 @@ export const recipeReducer = (state = initialState, action) => {
           }
         }
 
+      //delete recipe
       case 'DELETE_RECIPE_SUCCESS':
         return {
             ...state,

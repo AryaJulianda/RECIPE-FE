@@ -3,6 +3,19 @@ import { useSelector } from 'react-redux';
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
+export const getRecipeById = (recipeId) => {
+    return async(dispatch) => {
+        const url =`${serverUrl}/recipe/`+ recipeId
+        try {
+          dispatch({type:'PENDING'})
+          const res = await axios.get(url);
+          dispatch({type:'GET_RECIPE_SUCCESS',payload:res.data});
+        }catch(err){
+          dispatch({type:'GET_RECIPE_FAILED',error:err.message})
+        }
+    };
+};
+
 export const getAllRecipes = (query = '') => {
     return async(dispatch) => {
         const url = query ? `${serverUrl}/recipe/search?key=${query}` : `${serverUrl}/recipe`;

@@ -9,9 +9,8 @@ import Pagination from "../../components/Pagination/Pagination";
 import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal'
 
-import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
-import { deleteRecipe, getAllRecipesById } from "../../actions/recipeAction";
+import { deleteRecipe, getAllRecipesById,getRecipeById } from "../../actions/recipeAction";
 
 export default function DetailProfile () {
 
