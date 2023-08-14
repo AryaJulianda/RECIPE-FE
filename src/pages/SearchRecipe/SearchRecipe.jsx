@@ -15,19 +15,31 @@ export default function SearchRecipe () {
 
     const [searchQuery,setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const limit = 2;
-    const {recipes,isLoading,isError} = useSelector((state)=> state.recipes);
+    const limit = 5;
+    const {recipes,totalCount,isLoading,isError} = useSelector((state)=> state.recipes);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    useEffect(()=> {
-        dispatch(getAllRecipes(searchQuery,currentPage,limit));
-    },[currentPage,limit])
+    // useEffect(()=> {
+    //     // dispatch(getAllRecipes(searchQuery,currentPage,limit));
+    // },[currentPage,limit])
 
-    useEffect(()=>{
-        searchQuery.length >= 3 && dispatch(getAllRecipes(searchQuery,currentPage,limit))
-        searchQuery == '' &&  dispatch(getAllRecipes(searchQuery,currentPage,limit))
-      },[searchQuery,currentPage,limit])
+    // useEffect(()=>{
+    //     // setCurrentPage(1)
+    //     searchQuery.length >= 3 && dispatch(getAllRecipes(searchQuery,currentPage,limit))
+    //     searchQuery == '' &&  dispatch(getAllRecipes(searchQuery,currentPage,limit)) 
+    //   },[searchQuery,currentPage,limit])
+
+    useEffect(() => {
+        if (searchQuery.length >= 3 || searchQuery === "") {
+          setCurrentPage(1);
+          dispatch(getAllRecipes(searchQuery, 1, limit));
+        }
+      }, [searchQuery, limit]);
+
+    useEffect(() => {
+    dispatch(getAllRecipes(searchQuery, currentPage, limit));
+    }, [currentPage, limit]);
 
     const handleChange = (e) => {
         setSearchQuery(e.target.value);
@@ -41,21 +53,14 @@ export default function SearchRecipe () {
         navigate(`/detail-recipe/${recipeId}`)
     }
 
-    // // Pagination
-    // const totalPages = Math.ceil(recipes.totalCount / limit);
-
-    // const handlePageChange = (newPage) => {
-    //     if (newPage >= 1 && newPage <= totalPages) {
-    //         setCurrentPage(newPage);
-    //     }
-    // };
+    const totalPage = Math.ceil(totalCount/limit)
 
     const onNext = () => {
-        setCurrentPage(currentPage + 1)
+        currentPage < totalPage && setCurrentPage(currentPage + 1)
     }
 
     const onPrev = () => {
-        setCurrentPage(currentPage - 1)
+        currentPage > 1 && setCurrentPage(currentPage - 1)
     }
 
     return (
@@ -69,7 +74,7 @@ export default function SearchRecipe () {
                     onSubmit={handleSubmit}
                 />
                 <Cards recipes={recipes} onClick={handleClick}/>
-                <Pagination onNext={onNext} onPrev={onPrev}/>
+                <Pagination onNext={onNext} onPrev={onPrev} totalPage={totalPage} currentPage={currentPage} />
             </main>
             <Footer/>
         </>

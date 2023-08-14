@@ -1,5 +1,6 @@
 const initialState = {
   recipes: [],
+  totalCount:null,
   recipe:{},
   myRecipes:[],
   isError:false,
@@ -32,7 +33,8 @@ export const recipeReducer = (state = initialState, action) => {
       case 'GET_RECIPES_SUCCESS':
         return {
             ...state,
-            recipes: action.payload,
+            recipes: action.payload.recipes,
+            totalCount: action.payload.totalCount
         };
       case 'GET_RECIPES_FAILED':
         return {

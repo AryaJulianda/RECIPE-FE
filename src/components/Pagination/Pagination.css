@@ -20,7 +20,7 @@
 #pagination .pagination span {
     font-size: 32px;
     color: #3F3A3A;
-    margin-right: 20px;
+    margin:0 20px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1280px) {

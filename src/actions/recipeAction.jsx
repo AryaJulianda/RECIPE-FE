@@ -16,10 +16,9 @@ export const getRecipeById = (recipeId) => {
     };
 };
 
-export const getAllRecipes = (query = '', currentPage, limit = 2) => {
+export const getAllRecipes = (query = '', page = 1, limit = 2) => {
     return async(dispatch) => {
-      console.log(query)
-      const url = query ? `${serverUrl}/recipe/search?key=${query}&page=${currentPage}&limit=${limit}` : `${serverUrl}/recipe?page=${currentPage}&limit=${limit}`;
+      const url = query ? `${serverUrl}/recipe/search?key=${query}&page=${page}&limit=${limit}` : `${serverUrl}/recipe?page=${page}&limit=${limit}`;
         try {
           dispatch({type:'PENDING'})
           const res = await axios.get(url);
