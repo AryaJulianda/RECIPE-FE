@@ -46,12 +46,12 @@ export default function DetailProfile () {
                 <InfoProfile />
                 <NavProfile/>
                 <Link to='/add-recipe'>
-                    <button className="btn btn-add-recipe" style={{width:'56%',padding:'20px',margin:'20px 20px -40px',fontSize:'20px',backgroundColor:'#67e711',color:'#fff'}}>
+                    {/* <button className="btn btn-add-recipe" style={{width:'56%',padding:'20px',margin:'20px 20px -40px',fontSize:'20px',backgroundColor:'#67e711',color:'#fff'}}>
                         Add Recipe
-                    </button>
+                    </button> */}
                 </Link>
                 <Recipes recipes={recipes} handleDelete={handleDelete} handleEdit={handleEdit} />
-                <Pagination />
+                {/* <Pagination /> */}
             </main>
             <Footer />
             <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>

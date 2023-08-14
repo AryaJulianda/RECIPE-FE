@@ -35,7 +35,7 @@ export default function SearchRecipe () {
           setCurrentPage(1);
           dispatch(getAllRecipes(searchQuery, 1, limit));
         }
-      }, [searchQuery, limit]);
+    }, [searchQuery, limit]);
 
     useEffect(() => {
     dispatch(getAllRecipes(searchQuery, currentPage, limit));
