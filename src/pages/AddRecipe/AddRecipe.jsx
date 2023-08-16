@@ -9,13 +9,14 @@ import ModalComponent from '../../components/Modal/Modal';
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { postRecipe } from "../../actions/recipeAction";
+import Loading from "../../components/Loading/Loading";
 
 
 const AddRecipe = () => {
     
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {showModal,modalMessage} = useSelector((state)=>state.recipes)
+    const {showModal,modalMessage,isLoading} = useSelector((state)=>state.recipes)
 
     const [categoryId, setCategoryId] = useState(null);
     const [recipeImage,setRecipeImage] = useState({});
@@ -57,20 +58,22 @@ const AddRecipe = () => {
     }
 
     return(
-        <>
-            <Navbar />
-            <main>
-                <FormAddRecipe 
-                    recipe={recipe}
-                    onChange={handleChange}
-                    onSubmit={handleSubmit}
-                    setCategoryId={setCategoryId}
-                    recipeImage={recipeImage}
-                    handleChangeImage={handleChangeImage}
-                />  
-            </main>
-            <Footer />
-            <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
+        <>{ isLoading? <Loading/> :
+            <>
+                <Navbar />
+                <main>
+                    <FormAddRecipe 
+                        recipe={recipe}
+                        onChange={handleChange}
+                        onSubmit={handleSubmit}
+                        setCategoryId={setCategoryId}
+                        recipeImage={recipeImage}
+                        handleChangeImage={handleChangeImage}
+                        />  
+                </main>
+                <Footer />
+                <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
+            </>}
         </>
     );
 };

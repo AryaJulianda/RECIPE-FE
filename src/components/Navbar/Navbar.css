@@ -133,14 +133,20 @@
 
 @media only screen and (max-width: 576px) {
 
+    nav {
+        display: none;
+    }
     .nav-head {
+        display: none;
         padding: 5px 8px;
+        background-color: yellow;
     }
 
     .nav-head .nav-link {
         margin-right: 16px;
         margin-top: 0px;
         font-size: 10px;
+        background-color: yellowgreen;
     }
 
     .img-circle {

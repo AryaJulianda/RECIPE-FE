@@ -1,7 +1,7 @@
 import React from "react";
 import '../Cards/Cards.css';
 
-const Recipes = ({ recipes,handleDelete,handleEdit,onClick}) => {
+const Recipes = ({ recipes,handleDelete,handleEdit,handleClick}) => {
     // console.log(recipes)
     if(recipes.length==0) {
         return <h1 className="empty">Empty Recipe</h1>
@@ -11,7 +11,7 @@ const Recipes = ({ recipes,handleDelete,handleEdit,onClick}) => {
         <div id="cards">
             {recipes?.map((recipe) => {
                 return (
-                    <div className="card" key={recipe.recipe_id} >
+                    <div className="card" key={recipe.recipe_id}>
                         <div className="row g-0">
                             <div className="col img-card">
                                 <img src={recipe.img} className="img-fluid rounded-start" alt={recipe.title} />

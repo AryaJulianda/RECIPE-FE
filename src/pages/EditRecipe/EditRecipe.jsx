@@ -7,6 +7,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import FormEditRecipe from "../../components/FormRecipe/FormEditRecipe";
 import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal';
+import Loading from "../../components/Loading/Loading";
 
 export default function EditRecipe () {
 
@@ -14,7 +15,7 @@ export default function EditRecipe () {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
-    const {recipe} = useSelector((state) => state.recipes)
+    const {recipe,isLoading} = useSelector((state) => state.recipes)
     const {showModal,modalMessage} = useSelector((state)=> state.recipes)
 
     const [inputRecipe, setInputRecipe] = useState({
@@ -73,22 +74,25 @@ export default function EditRecipe () {
     }
 
     return(
-        <>
-            <Navbar />
-            <main>
-                <FormEditRecipe 
-                    recipe={recipe}
-                    inputRecipe={inputRecipe}
-                    onChange={handleChange}
-                    onSubmit={handleSubmit}
-                    handleChangeImage={handleChangeImage}
-                    showImage={showImage}
-                    setCategoryId={setCategoryId}
-                    categoryId={categoryId}
-                />  
-            </main>
-            <Footer />
-            <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
+        <>{isLoading? <Loading/> :
+            <>
+                <Navbar />
+                <main>
+                    <FormEditRecipe 
+                        recipe={recipe}
+                        inputRecipe={inputRecipe}
+                        onChange={handleChange}
+                        onSubmit={handleSubmit}
+                        handleChangeImage={handleChangeImage}
+                        showImage={showImage}
+                        setCategoryId={setCategoryId}
+                        categoryId={categoryId}
+                    />  
+                </main>
+                <Footer />
+                <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
+            </>}
         </>
+       
     );
 };

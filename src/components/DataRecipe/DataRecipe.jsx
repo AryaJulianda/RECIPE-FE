@@ -21,7 +21,7 @@ const DataRecipe = ({recipe}) => {
                 <div className="comment d-flex">
                 <div className="profile detail">
                     <div className="img-circle"></div>
-                    <span>Profile Name <br /><span>10 Recipe</span></span>
+                    <span>Profile Name<br /><span>10 Recipe</span></span>
                 </div>
                 <span className="comment-text">Wow, I just made this and it was delicious! Thanks for sharing!</span>
                 </div>

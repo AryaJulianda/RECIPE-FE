@@ -89,6 +89,7 @@
 #cards
 .card .card-body .author img {
     margin-right: 24px;
+    border-radius: 50%;
 }
 
 #cards
@@ -117,7 +118,7 @@
     color:#FFF;
 } 
 
-@media only screen and (min-width: 992px) and (max-width: 1280px) {
+/* @media only screen and (min-width: 992px) and (max-width: 1280px) {
     #cards
     .card {
         max-width: 600px;
@@ -235,68 +236,116 @@
     .author span {
         font-size: 14px; 
     }
-}
+} */
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 436px) {
+    #cards {
+        margin-top: 10px;
+    }
+    
     #cards
     .card {
-        max-width: 350px;
-        max-height: 125px;
-        margin-top: 15px;
+        border: none;
+        margin-top: 40px;
+        width: 380px; 
+        height: 200px;
+        margin-bottom: 300px;
+        background-color: green;
     }
-
+    
     #cards
-    .card-body {
-        width: 225px;
+    .card .img-card {
+        /* margin-right: 30px; */
+        width: 50%;
+        height: 190px;
+        background-color: red;
     }
+    
+    
     #cards
-    .img-card {
-        margin-right: 0;
+    .card .card-body {
+        height: 100%;
     }
+    
     #cards
-    .img-card img {
-        width: 125px;
-        height: 125px;
+    .card .card-body .card-title {
+        color: #3F3A3A;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: capitalize;
     }
+    
     #cards
-    .card-title {
-        font-size: 12px;
-        margin-bottom:10px;
-        line-height: 0;
-    }
-    #cards
-    .card-text {
-        font-size: 10px;
+    .card .card-body .card-text {
+        color: #3F3A3A;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: capitalize;
         width: 100%;
     }
-
-    /* .author *{
-        display: none;
-    } */
+    
     #cards
-    .card-stats {
-        margin-top: 8px;
+    .card .card-body .card-stats {
+        margin-top: 20px;
     }
+    
     #cards
-    .stats {
-        width: 190px;
-        height: 22px;
-        border-radius: 3px;
+    .card .card-body .card-stats .stats {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 325px;
+        height: 42px;
+        flex-shrink: 0;
+        border-radius: 6px;
+        background: #EFC81A;
     }
+    
     #cards
-    .stats span {
+    .card .card-body .card-stats .stats span{
+        display: inline-block;
         color: #FFF;
-        font-size: 10px;
+        font-size: 16px;
+        font-style: normal;
     }
-
-    /* .author img {
-        width: 36px;
-        height: 36px;
-        margin-right: 6px;
-        display: none;
+    
+    #cards
+    .card .card-body .author {
+        margin-top: 20px;
     }
-
-    .author span {
-        font-size: 12px;
-    } */
+    
+    #cards
+    .card .card-body .author img {
+        margin-right: 24px;
+    }
+    
+    #cards
+    .card .card-body .author span {
+        color: #3F3A3A; 
+        font-size: 24px;
+    }
+    
+    .card-btn button{    
+        font-weight: 500;
+        font-size:16px;
+        border-radius: 6px;  
+        color:#fff;
+        padding:10px 20px;
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+    
+    #edit-btn {
+        background-color: #30C0F3;    
+        color: #FFF;
+    }
+    
+    #delete-btn {
+        background-color: #F57E71;
+        color:#FFF;
+}
 }

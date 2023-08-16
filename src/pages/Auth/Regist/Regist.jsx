@@ -1,13 +1,15 @@
 import React,{useState} from "react";
-import { useNavigate } from "react-router";
+import {useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import ModalComponent from '../../../components/Modal/Modal';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import {login,regist}  from '../../../actions/authAction';
+import Loading from '../../../components/Loading/Loading'
 import './Regist.css';
 
 const Regist = ({regist}) => {
 
-    const {showModal,modalMessage} = useSelector((state) => state.auth)
+    const {showModal,modalMessage,isLoading} = useSelector((state) => state.auth)
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -33,7 +35,8 @@ const Regist = ({regist}) => {
     }
 
   return (
-      <section className="regist">
+    <>{isLoading? <Loading/> :
+    <section className="regist">
 
         <header>
             <img src="../img/logo.svg" alt="" />
@@ -64,10 +67,12 @@ const Regist = ({regist}) => {
                 <p className="forgot-password">Forgot your Password <a href="#">Click Here</a></p>
             </form>
         </div>
-        <p className="login-here text-center">Already have account? <a href="#">Log in Here</a></p>
-         
-         <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
-    </section>
+        <p className="login-here text-center">Already have account? <Link to={'/login'}>Log in Here</Link></p>
+        
+        <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
+    </section>}
+    </>
+        
   )
 };
 

@@ -16,7 +16,7 @@ export const getRecipeById = (recipeId) => {
     };
 };
 
-export const getAllRecipes = (query = '', page = 1, limit = 2) => {
+export const getAllRecipes = (query = '', page = 1, limit) => {
     return async(dispatch) => {
       const url = query ? `${serverUrl}/recipe/search?key=${query}&page=${page}&limit=${limit}` : `${serverUrl}/recipe?page=${page}&limit=${limit}`;
         try {

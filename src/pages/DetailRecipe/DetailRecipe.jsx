@@ -6,35 +6,36 @@ import Navbar from "../../components/Navbar/Navbar";
 import InfoProfile from '../../components/InfoProfile/InfoProfile';
 import Footer from '../../components/Footer/Footer';
 import DataRecipe from '../../components/DataRecipe/DataRecipe';
+import { useDispatch, useSelector } from "react-redux";
+import { getRecipeById } from "../../actions/recipeAction";
+import Loading from "../../components/Loading/Loading";
 
 export default function DetailRecipe () {
 
-    const [recipe,setRecipe] = useState([]);
+    const {recipe,isLoading} = useSelector((state) => state.recipes)
+    const user = {
+        created_at: recipe.created_at,
+        username: recipe.author,
+        photo:recipe.author_photo
+    }
     const {recipeId} = useParams();
     const navigate = useNavigate();
-
-    const getRecipeById = async () => {
-        await axios.get('http://localhost:4000/recipe/'+ recipeId)
-            .then(res => { 
-                // console.log('Get Data successfully :' , res.data);
-                setRecipe(res.data);
-            })
-            .catch(err => console.log('Get data failed',err.response.data.message))
-    }
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        // console.log(recipe)
-        getRecipeById();
-    },[]);
+        dispatch(getRecipeById(recipeId));
+    }, [recipeId]);
 
     return(
-        <>
-            <Navbar />
-            <main>
-                <InfoProfile />  
-                <DataRecipe recipe={recipe}/>
-            </main>
-            <Footer />
+        <>{isLoading? <Loading/> :
+            <>
+                <Navbar />
+                <main>
+                    <InfoProfile user={user}/>  
+                    <DataRecipe recipe={recipe}/>
+                </main>
+                <Footer />
+            </>}
         </>
     );
 };

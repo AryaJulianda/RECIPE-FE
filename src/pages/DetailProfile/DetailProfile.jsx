@@ -11,6 +11,8 @@ import ModalComponent from '../../components/Modal/Modal'
 
 import { useDispatch, useSelector } from "react-redux";
 import { deleteRecipe, getAllRecipesById,getRecipeById } from "../../actions/recipeAction";
+import Loading from "../../components/Loading/Loading";
+import Bookmarked from "../../components/Bookmarked/Bookmarked";
 
 export default function DetailProfile () {
 
@@ -18,12 +20,19 @@ export default function DetailProfile () {
     const navigate = useNavigate();
 
     const recipes = useSelector((state)=>state.recipes.myRecipes);
-    
-    const {showModal,modalMessage} = useSelector((state)=> state.recipes)
+    const user = useSelector((state)=>state.auth.user);
+    // console.log(recipes)
+
+    const {showModal,modalMessage,isLoading} = useSelector((state)=> state.recipes)
+    const [activeComponent, setActiveComponent] = useState('recipes');
 
     useEffect(()=> {
         dispatch(getAllRecipesById())
     },[])
+
+    const handleClick = (recipeId) => {
+        navigate(`/detail-recipe/${recipeId}`)
+    }
 
     const handleDelete = (recipeId) => {
         dispatch(deleteRecipe(recipeId))
@@ -40,22 +49,21 @@ export default function DetailProfile () {
     }
 
     return(
+    <>
+        {isLoading? <Loading/> :
         <>
             <Navbar />
             <main>
-                <InfoProfile />
-                <NavProfile/>
-                <Link to='/add-recipe'>
-                    {/* <button className="btn btn-add-recipe" style={{width:'56%',padding:'20px',margin:'20px 20px -40px',fontSize:'20px',backgroundColor:'#67e711',color:'#fff'}}>
-                        Add Recipe
-                    </button> */}
-                </Link>
-                <Recipes recipes={recipes} handleDelete={handleDelete} handleEdit={handleEdit} />
-                {/* <Pagination /> */}
+                <InfoProfile user={user}/>
+                <NavProfile setActiveComponent={setActiveComponent}/>
+                {activeComponent === 'recipes' && (<Recipes recipes={recipes} handleDelete={handleDelete} handleEdit={handleEdit} handleClick={handleClick}/>)}
+                {activeComponent === 'bookmarked' && <Bookmarked recipes={recipes} handleClick={handleClick}/>}
+            {/* <Pagination /> */}
             </main>
             <Footer />
             <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
-        </>
+        </>}
+    </>
     );
 } 
 

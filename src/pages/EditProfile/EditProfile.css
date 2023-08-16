@@ -1,0 +1,117 @@
+/* photo profile */
+.edit-photo-profile {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  margin-top: 100px;
+}
+
+.photo-profile {
+  width: 280px;
+  height: 280px;
+  flex-shrink: 0;
+  border-radius: 280px;
+  background: url(../img/Ellipse\ 129.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin:0 auto 20px;
+}
+
+.change-photo-profile {
+  color: #2E266F;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.change-photo-profile:hover {
+  text-decoration: underline;
+}
+
+/* form-edit-profile */
+.form-control:focus {
+  border-radius: 6px;
+  border: 1px solid #EFC81A;
+  background: #FFF;
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+
+.form-edit-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-edit-profile .form-label {
+  color: #696F79;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.form-edit-profile input {
+  width: 426px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid #8692A6;
+  background: #FFF;
+  margin-bottom: 20px;
+}
+
+.form-edit-profile .update-button {
+  width: 426px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: #EFC81A;
+  border:none;
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 45px;
+}
+
+.change-password {
+  color: #999;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 25px;
+  text-align: start;
+}
+
+.change-password a {
+  color: #EFC81A;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.change-password a:hover {
+  text-decoration: underline;
+}
+
+
+/* change password page */
+/* .header {
+  color: #EFC81A;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  margin: 150px auto;
+} */

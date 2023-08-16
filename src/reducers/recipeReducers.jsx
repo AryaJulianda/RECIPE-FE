@@ -12,7 +12,7 @@ const initialState = {
 export const recipeReducer = (state = initialState, action) => {
   switch (action.type) {
       case 'PENDING':
-        console.log('loading...')
+        // console.log('loading...')
         return {
             ...state,
             isLoading:true,
@@ -22,11 +22,13 @@ export const recipeReducer = (state = initialState, action) => {
         return {
             ...state,
             recipe: action.payload,
+            isLoading:false
         };
       case 'GET_RECIPE_FAILED':
         return {
           ...state,
-          isError: true
+          isError: true,
+          isLoading:false
         }
 
       // get all recipes
@@ -34,12 +36,15 @@ export const recipeReducer = (state = initialState, action) => {
         return {
             ...state,
             recipes: action.payload.recipes,
-            totalCount: action.payload.totalCount
+            totalCount: action.payload.totalCount,
+            isLoading:false
+
         };
       case 'GET_RECIPES_FAILED':
         return {
           ...state,
-          isError: true
+          isError: true,
+          isLoading:false
         }
 
       // get recipes by user id
@@ -47,12 +52,14 @@ export const recipeReducer = (state = initialState, action) => {
         return {
             ...state,
             myRecipes: action.payload,
+            isLoading:false
         };
       case 'GET_RECIPES_BY_ID_FAILED':
         return {
           ...state,
           myRecipes: [],
-          isError: true
+          isError: true,
+          isLoading:false
         }
 
       // post recipe
@@ -60,6 +67,7 @@ export const recipeReducer = (state = initialState, action) => {
         return {
             ...state,
             showModal:true,
+            isLoading:false,
             modalMessage:{
               header:"Add Recipe Successfully"
             }
@@ -68,6 +76,7 @@ export const recipeReducer = (state = initialState, action) => {
         return {
           ...state,
           isError: true,
+          isLoading:false,
           showModal:true,
           modalMessage:{
             header:'Add Recipe failed'
@@ -81,7 +90,9 @@ export const recipeReducer = (state = initialState, action) => {
             showModal:true,
             modalMessage:{
               header:"Edit Recipe Successfully"
-            }
+            },
+            isLoading:false
+
         };
       case 'PUT_RECIPE_FAILED':
         return {
@@ -90,7 +101,8 @@ export const recipeReducer = (state = initialState, action) => {
           showModal:true,
           modalMessage:{
             header:'Edit Recipe failed'
-          }
+          },
+          isLoading:false
         }
 
       //delete recipe
@@ -100,7 +112,8 @@ export const recipeReducer = (state = initialState, action) => {
             showModal:true,
             modalMessage:{
               header:"Delete Recipe Successfully"
-            }
+            },
+            isLoading:false
         };
       case 'DELETE_RECIPE_FAILED':
         return {
@@ -109,13 +122,15 @@ export const recipeReducer = (state = initialState, action) => {
           showModal:true,
           modalMessage:{
             header:'Delete Recipe failed'
-          }
+          },
+          isLoading:false
         }
 
       case 'CLOSE_MODAL':
         return{
           ...state,
-          showModal : false
+          showModal : false,
+          isLoading:false
         }
       default:
         return state;

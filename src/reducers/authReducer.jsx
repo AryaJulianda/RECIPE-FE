@@ -22,7 +22,8 @@ export const authReducer = (state=initialState,action) => {
         ...state,
         user: action.payload.user,
         accessToken : action.payload.accessToken,
-        refreshToken: action.payload.refreshToken
+        refreshToken: action.payload.refreshToken,
+        isLoading:false
       }
     case 'LOGIN_FAILED':
       // console.log(action.error)
@@ -31,7 +32,8 @@ export const authReducer = (state=initialState,action) => {
         error:action.error,
         isError:true,
         showModal:true,
-        modalMessage:action.modalMessage
+        modalMessage:action.modalMessage,
+        isLoading:false
       }
     case 'REGIST_SUCCESS':
       console.log(action)
@@ -41,21 +43,46 @@ export const authReducer = (state=initialState,action) => {
         accessToken : action.payload.accessToken,
         refreshToken: action.payload.refreshToken,
         showModal:true,
-        modalMessage:action.modalMessage
+        modalMessage:action.modalMessage,
+        isLoading:false
       }
     case 'REGIST_FAILED':
       // console.log(action.modalMessage,action.error)
       return {
         ...state,error:action.error,isError:true,user:null,isLoading:false,
-        showModal: true,modalMessage:action.modalMessage
+        showModal: true,modalMessage:action.modalMessage,
       }
     case 'ACTIVATION_SUCCESS':
       return {
-        ...state,showModal:true,modalMessage: action.modalMessage
+        ...state,showModal:true,modalMessage: action.modalMessage,
+        isLoading:false
+      }
+      case 'PENDING':
+      console.log('loading...')
+      return {
+        ...state,isLoading:true
+      }
+    case 'UPDATE_USER_SUCCESS':
+      // console.log(action.payload)
+      console.log('update success')
+      return {
+        ...state,
+        user: action.payload,
+        isLoading:false
+      }
+    case 'UPDATE_USER_FAILED':
+      // console.log(action.error)
+      return {
+        ...state,
+        error:action.error,
+        isError:true,
+        showModal:true,
+        modalMessage:action.modalMessage,
+        isLoading:false
       }
     case 'CLOSE_MODAL':
       return {
-        ...state,showModal: false
+        ...state,showModal: false,
       } 
     default :
       return state;

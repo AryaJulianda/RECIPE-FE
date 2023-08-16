@@ -7,6 +7,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import Cards from "../../components/Cards/Cards";
 import Pagination from '../../components/Pagination/Pagination';
 import Footer from "../../components/Footer/Footer";
+import Loading from '../../components/Loading/Loading'
 
 import { useDispatch, useSelector } from "react-redux";
 import { getAllRecipes } from "../../actions/recipeAction";
@@ -17,6 +18,7 @@ export default function SearchRecipe () {
     const [currentPage, setCurrentPage] = useState(1);
     const limit = 5;
     const {recipes,totalCount,isLoading,isError} = useSelector((state)=> state.recipes);
+    // console.log(recipes)
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -65,18 +67,22 @@ export default function SearchRecipe () {
 
     return (
         <>
-            <Navbar/>
-            <main>
-                <Header/>
-                <SearchBar
-                    value={searchQuery}
-                    onChange={handleChange}
-                    onSubmit={handleSubmit}
-                />
-                <Cards recipes={recipes} onClick={handleClick}/>
-                <Pagination onNext={onNext} onPrev={onPrev} totalPage={totalPage} currentPage={currentPage} />
-            </main>
-            <Footer/>
+        {isLoading ? <Loading /> :
+            <>
+                <Navbar/>
+                <main>
+                    <Header/>
+                    <SearchBar
+                        value={searchQuery}
+                        onChange={handleChange}
+                        onSubmit={handleSubmit}
+                    />
+                    <Cards recipes={recipes} onClick={handleClick}/>
+                    <Pagination onNext={onNext} onPrev={onPrev} totalPage={totalPage} currentPage={currentPage} />
+                </main>
+                <Footer/>
+            </>
+        }
         </>
     )
 }
