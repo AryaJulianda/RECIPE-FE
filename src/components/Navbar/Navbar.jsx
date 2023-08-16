@@ -6,7 +6,7 @@ const Navbar = () => {
 
   const dataUser = useSelector((state) => state.auth.user)
   // console.log(dataUser)
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const handleLogout = () => {
     localStorage.clear();

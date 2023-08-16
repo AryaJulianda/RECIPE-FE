@@ -1,7 +1,7 @@
 import './Modal.css';
 import {Modal} from 'react-bootstrap';
 
-const useModal = ({showModal,handleCloseModal,modalMessage,navigate}) => {
+const useModal = ({showModal,handleCloseModal,modalMessage}) => {
     return (
         
         <Modal show={showModal} onHide={handleCloseModal} backdrop="static" keyboard={false} id='Modal'>

@@ -1,4 +1,3 @@
-import React from "react";
 import '../Cards/Cards.css';
 
 const Recipes = ({ recipes,handleDelete,handleEdit,handleClick}) => {

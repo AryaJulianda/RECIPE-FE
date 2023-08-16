@@ -6,7 +6,6 @@ import FormAddRecipe from "../../components/FormRecipe/FormAddRecipe";
 import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal';
 
-import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { postRecipe } from "../../actions/recipeAction";
 import Loading from "../../components/Loading/Loading";

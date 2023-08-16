@@ -1,7 +1,6 @@
-import React from "react";
 import '../Cards/Cards.css';
 
-const Bookmarked = ({ recipes,handleClick}) => {
+const Bookmarked = ({ recipes}) => {
     // console.log(recipes)
     if(recipes.length==0) {
         return <h1 className="empty">Empty Recipe</h1>
@@ -25,8 +24,8 @@ const Bookmarked = ({ recipes,handleClick}) => {
                                     <div className="card-stats ">
                                         <div className="stats fw-medium"><span>0 Like - 0 Comment - 0 Bookmark</span></div>
                                     </div> 
-                                    <div class="card-btn d-flex justify-content-between">
-                                      <button class="btn" id="delete-btn">Delete From Bookmark</button>
+                                    <div className="card-btn d-flex justify-content-between">
+                                      <button className="btn" id="delete-btn">Delete From Bookmark</button>
                                     </div>
                                 </div>
                             </div>

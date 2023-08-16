@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useSelector } from 'react-redux';
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 

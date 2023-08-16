@@ -1,4 +1,3 @@
-import React from "react";
 import './NavProfile.css';
 
 export default function NavProfile ({setActiveComponent}) {
