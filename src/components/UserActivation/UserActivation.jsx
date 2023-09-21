@@ -15,7 +15,7 @@ const UserActivation = () => {
     const serverUrl = import.meta.env.VITE_SERVER_URL;
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/auth/activate/` + token)
+        axios.post(serverUrl + `/auth/activate/` + token)
             .then(res => { 
                 console.log('Activation account successfully', res.data);
                 dispatch({type:'ACTIVATION_SUCCESS',modalMessage:{header:'Account has been set up',text:'Account activated successfully, please login'}})
