@@ -26,7 +26,7 @@ export const authReducer = (state=initialState,action) => {
         isLoading:false
       }
     case 'LOGIN_FAILED':
-      // console.log(action.error)
+      console.log({error:action.error})
       return {
         ...state,
         error:action.error,

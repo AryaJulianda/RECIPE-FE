@@ -17,72 +17,74 @@ export default function SearchRecipe () {
     const [searchQuery,setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const limit = 5;
-    const {recipes,totalCount,isLoading,isError} = useSelector((state)=> state.recipes);
+    const {recipes,totalCount,isLoading} = useSelector((state)=> state.recipes);
     // console.log(recipes)
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    // useEffect(()=> {
-    //     // dispatch(getAllRecipes(searchQuery,currentPage,limit));
-    // },[currentPage,limit])
-
-    // useEffect(()=>{
-    //     // setCurrentPage(1)
-    //     searchQuery.length >= 3 && dispatch(getAllRecipes(searchQuery,currentPage,limit))
-    //     searchQuery == '' &&  dispatch(getAllRecipes(searchQuery,currentPage,limit)) 
-    //   },[searchQuery,currentPage,limit])
-
-    useEffect(() => {
-        if (searchQuery.length >= 3 || searchQuery === "") {
-          setCurrentPage(1);
-          dispatch(getAllRecipes(searchQuery, 1, limit));
-        }
-    }, [searchQuery, limit]);
 
     useEffect(() => {
     dispatch(getAllRecipes(searchQuery, currentPage, limit));
     }, [currentPage, limit]);
 
     const handleChange = (e) => {
-        setSearchQuery(e.target.value);
+      setSearchQuery(e.target.value);
     }
 
     const handleSubmit = () => {
-        dispatch(getAllRecipes(searchQuery));
+			setCurrentPage(1);
+			dispatch(getAllRecipes(searchQuery, 1, limit));
     }
 
     const handleClick = (recipeId) => {
-        navigate(`/detail-recipe/${recipeId}`)
+      navigate(`/detail-recipe/${recipeId}`)
     }
 
     const totalPage = Math.ceil(totalCount/limit)
 
     const onNext = () => {
-        currentPage < totalPage && setCurrentPage(currentPage + 1)
+			currentPage < totalPage && setCurrentPage(currentPage + 1)
     }
 
     const onPrev = () => {
-        currentPage > 1 && setCurrentPage(currentPage - 1)
+			currentPage > 1 && setCurrentPage(currentPage - 1)
     }
 
     return (
         <>
         {isLoading ? <Loading /> :
-            <>
-                <Navbar/>
-                <main>
-                    <Header/>
-                    <SearchBar
-                        value={searchQuery}
-                        onChange={handleChange}
-                        onSubmit={handleSubmit}
-                    />
-                    <Cards recipes={recipes} onClick={handleClick}/>
-                    <Pagination onNext={onNext} onPrev={onPrev} totalPage={totalPage} currentPage={currentPage} />
-                </main>
-                <Footer/>
-            </>
+					<>
+						<Navbar/>
+						<main>
+							<Header/>
+							<SearchBar
+								value={searchQuery}
+								onChange={handleChange}
+								onSubmit={handleSubmit}
+							/>
+							<Cards recipes={recipes} onClick={handleClick}/>
+							<Pagination onNext={onNext} onPrev={onPrev} totalPage={totalPage} currentPage={currentPage} />
+						</main>
+						<Footer/>
+					</>
         }
         </>
     )
 }
+
+
+// useEffect(()=> {
+//     // dispatch(getAllRecipes(searchQuery,currentPage,limit));
+// },[currentPage,limit])
+
+// useEffect(()=>{
+//     // setCurrentPage(1)
+//     searchQuery.length >= 3 && dispatch(getAllRecipes(searchQuery,currentPage,limit))
+//     searchQuery == '' &&  dispatch(getAllRecipes(searchQuery,currentPage,limit)) 
+//   },[searchQuery,currentPage,limit])
+
+// useEffect(() => {
+//     if (searchQuery.length >= 3 || searchQuery === "") {
+//       setCurrentPage(1);
+//       dispatch(getAllRecipes(searchQuery, 1, limit));
+//     }
+// }, [searchQuery, limit]);

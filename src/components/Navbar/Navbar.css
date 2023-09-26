@@ -1,28 +1,37 @@
 /* navigation */
-.nav-head {
-    padding:0 80px;
-    margin-bottom: 40px;
+.nav-body {
+    width: 100%;
+    padding: 40px 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
 }
 
-.nav-head .nav-link{
-    margin-top: 25px;
-    margin-right: 87px;
+.link-wrap {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.link-item {
+    text-decoration: none;
     color: #2E266F;
-    text-align: center;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+    font-size: 24px; 
 }
 
-.nav-head .nav-link:hover {
+.link-item:hover {
     text-decoration: underline;
-    color:#2E266F
+    color:inherit
 }
 
 /* profile box */
-.profile {
-    margin-top: 25px;
+.nav-profile {
+    width: fit-content;
     display: flex;
     border-left: 7px solid #EFC81A;
     height:97px;
@@ -31,7 +40,7 @@
     padding:10px;
 }
 
-.img-circle {
+.nav-img-circle {
     margin-right: 38px;
     width: 64px;
     height: 64px;
@@ -42,7 +51,7 @@
     background-size: cover;
 }
 
-.profile span{
+.nav-profile span{
     align-items: center;
     color: #000;
     font-size: 20px;
@@ -51,118 +60,117 @@
     text-transform: capitalize;
 }
 
-.profile span .profile-name{
+.nav-profile span .nav-profile-name{
     font-weight: 400;
     color: black;
 }
 
-.profile span .link-style {
+.nav-profile span .link-style {
     text-decoration: none;
 }
 
-.profile span .link-style:hover {
+.nav-profile span .link-style:hover {
     text-decoration: underline;
 }
 
-.profile span .logout {
+.nav-profile span .logout {
     font-weight: 700;
     color:black;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1280px) {
-
-    .nav-head {
-        padding:20px 20px;
+    .nav-body {
+        padding: 20px 50px;
+        margin-bottom: 30px;
+    }
+    
+    .link-wrap {
+        gap: 60px;
+    }
+    
+    .link-item {
+        font-size: 18px; 
     }
 
-    .nav-head .nav-link {
-        margin-right: 40px;
-        margin-top: 0px;
-        font-size: 16px;
-    }
-
-    .img-circle {
+    .nav-img-circle {
         margin-right: 13px;
-        width: 32px;
-        height: 32px;
+        width: 37px;
+        height: 37px;
     }
 
-    .profile {
+    .nav-profile {
         margin-top: 0px;
         height:40px;
         padding:10px;
         border-left: 3px solid #EFC81A;
     }
 
-    .profile span {
+    .nav-profile span {
         font-size: 14px;
     }
 }
 
 @media only screen and  (max-width: 991px) {
-
-
-    .nav-head {
-        padding: 10px 15px;
+    .nav-body {
+        padding: 20px 30px;
+        margin-bottom: 30px;
+    }
+    
+    .link-wrap {
+        gap: 30px;
+    }
+    
+    .link-item {
+        font-size: 16px; 
     }
 
-    .nav-head .nav-link {
-        margin-right: 30px;
-        margin-top: 0px;
-        font-size: 14px; 
-    }
-
-    .img-circle {
+    .nav-img-circle {
         margin-right: 10px; 
         width: 28px; 
         height: 28px; 
     }
 
-    .profile {
+    .nav-profile {
         margin-top: 0px;
         height: 32px; 
         padding: 8px; 
         border-left: 2px solid #EFC81A; 
     }
 
-    .profile span {
+    .nav-profile span {
         font-size: 12px; 
     }
 
 }
 
 @media only screen and (max-width: 576px) {
-
-    nav {
-        display: none;
+    .nav-body {
+        padding: 10px 17px;
+        margin-bottom: 30px;
     }
-    .nav-head {
-        display: none;
-        padding: 5px 8px;
-        background-color: yellow;
+    
+    .link-wrap {
+        gap: 30px;
     }
-
-    .nav-head .nav-link {
-        margin-right: 16px;
-        margin-top: 0px;
-        font-size: 10px;
-        background-color: yellowgreen;
+    
+    .link-item {
+        font-size: 11px; 
     }
 
-    .img-circle {
-        margin-right: 6px;
-        width: 22px;
-        height: 22px;
+    .nav-img-circle {
+        margin-right: 10px; 
+        width: 28px; 
+        height: 28px; 
     }
 
-    .profile {
+    .nav-profile {
         margin-top: 0px;
         height: 28px;
         padding: 6px;
         border-left: 2px solid #EFC81A;
     }
 
-    .profile span {
-        font-size: 8px;
+    .nav-profile span {
+        font-size: 10px;
     }
 } 

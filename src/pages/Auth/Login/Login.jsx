@@ -6,20 +6,18 @@ import ModalComponent from '../../../components/Modal/Modal';
 import Loading from '../../../components/Loading/Loading'
 import './Login.css';
 
-const Login = ({login}) => {
+const Login = ({}) => {
 
-    const {showModal,modalMessage,isLoading} = useSelector((state) => state.auth)
+    const {showModal,modalMessage} = useSelector((state) => state.auth)
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [inputData, setInputData] = useState({
         email:'',
         password:''
     })
-
-    const postData = (e) => {
-        e.preventDefault()
-        // console.log(inputData);
-        login(inputData,navigate)
+    const postData = () => {
+        console.log(inputData);
+        dispatch(login(inputData,navigate))
     }
 
     const onChange = (e) => {
@@ -35,7 +33,7 @@ const Login = ({login}) => {
 
 
     return (
-        <>{isLoading? <Loading /> :
+        // <>{isLoading? <Loading /> :
         <div>
             <main>
                 <header>
@@ -48,32 +46,24 @@ const Login = ({login}) => {
                 <div className="login-form">
                     <form action="">
                         <div className="mb-3 input-field">
-                            <label htmlFor="inputEmail" className="form-label">Email</label>
-                            <input type="email" name='email' value={inputData.email} className="form-control" id="inputEmail" placeholder="Enter email address" onChange={onChange} />
+                            <label htmlFor="inputEmail" className="form-label d-block">Email</label>
+                            <input type="email" name='email' value={inputData.email} className="form-input" id="inputEmail" placeholder="Enter email address" onChange={onChange} />
                         </div>
                         <div className="mb-3 input-field">
-                            <label htmlFor="inputPassword" className="form-label">Password</label>
-                            <input type="password" name='password' value={inputData.password} className="form-control" id="inputPassword" placeholder="Password" onChange={onChange} />
+                            <label htmlFor="inputPassword" className="form-label d-block">Password</label>
+                            <input type="password" name='password' value={inputData.password} className="form-input" id="inputPassword" placeholder="Password" onChange={onChange} />
                         </div>
-                        <div className="form-check my-4">
-                            <input type="checkbox" className="form-check-input" id="check"/>
-                            <label className="form-check-label" htmlFor="check">I agree to terms & conditions</label>
-                        </div>
-                        <button type="button" className="btn login-button" data-bs-toggle="modal" data-bs-target="#verifModal" onClick={postData} >Login</button>
+                        <button type="button" className="btn login-button mt-4" data-bs-toggle="modal" data-bs-target="#verifModal" onClick={postData} >Login</button>
                         <p className="forgot-password">Forgot your Password <a href="#">Click Here</a></p>
                     </form>
                 </div>
                 <p className="singup-here text-center">Don't have an account? <Link to={'/regist'}>Sing up Here</Link></p>
                 <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
             </main>
-        </div>}
-        </>
+        </div>
+        // }</>
 
     )
 };
 
-const mapDispatch = {
-    login,
-}
-
-export default connect(null,mapDispatch)(Login);
+export default Login;

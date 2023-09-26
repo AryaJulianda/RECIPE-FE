@@ -48,16 +48,17 @@ header h3 {
     margin-top: 20px;
 }
 
-.form-control {
+input.form-input {
     width: 426px;
-    height: 64px;
-    flex-shrink: 0;
+    padding: 15px;
     border-radius: 6px;
     border: 1px solid #8692A6;
-    background: #FFF;
+    background: white;
+    color: black;
 }
 
 .input-field input:focus {
+    outline: none;
     border-radius: 6px;
     border: 1px solid #EFC81A;
     background: #FFF;
@@ -174,4 +175,23 @@ form
 
 .modal-body button:hover {
     background-color: #EFC81A;
+}
+
+/* @media only screen and (min-width: 992px) and (max-width: 1280px) {}
+    @media only screen and  (max-width: 991px) {} */
+@media only screen and (max-width: 576px) {
+    .login-form {
+        width: 100%;
+    }
+
+    input.form-input {
+        width: 100%;
+    }
+
+    form
+    .login-button {
+        width: 100%;
+        height: fit-content;
+        padding: 17px 0;
+    }
 }

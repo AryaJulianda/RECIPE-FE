@@ -17,10 +17,10 @@ const LandingPage = () => {
                     <div className="col-6 d-flex align-items-center">
                         <div className="box-left">
                             <h1>Discover Recipe <br/>& Delicious Food</h1>
-                            <Link to={'/search-recipe'}>
+                            <Link to={'/search-recipe'} style={{textDecoration:'none'}}>
                               <div className="search-bar">
                                   <img src="../img/search-icon.svg" alt="" />
-                                  <span>Search restaurant, food</span>
+                                  <p>Search restaurant, food</p>
                               </div>
                             </Link>
                         </div>

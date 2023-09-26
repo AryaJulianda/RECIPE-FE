@@ -31,12 +31,10 @@
   margin-right: 15px;
 }
 
-.header-landing .box-left .search-bar span {
+.header-landing .box-left .search-bar p {
   font-size: 18px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 90px; /* 500% */
-  text-transform: capitalize;
+  line-height: 90px;
   text-decoration: none;
 }
 

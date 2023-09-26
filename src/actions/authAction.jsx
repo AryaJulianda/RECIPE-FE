@@ -11,9 +11,10 @@ export const login = (inputData,navigate) => async(dispatch) => {
     dispatch({type:'LOGIN_SUCCESS',payload:response.data});
     navigate('/');
   } catch (error) {
+    console.log('nih error',inputData,error)
     dispatch({
       type:'LOGIN_FAILED',
-      error:error.response.data.message,
+      error:error,
       modalMessage:{
         header:'Regist failed!',
         text:error.response.data.message}

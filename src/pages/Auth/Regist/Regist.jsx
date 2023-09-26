@@ -33,31 +33,32 @@ const Regist = ({regist}) => {
     const handleCloseModal = () => {
         dispatch({type:"CLOSE_MODAL"})
     }
+    console.log({showModal})
 
   return (
-    <>{isLoading? <Loading/> :
+    // <>{isLoading? <Loading/> :
     <section className="regist">
 
         <header>
             <img src="../img/logo.svg" alt="" />
             <h2 className="brand">Mama Recipe</h2>
             <h1 className="text-center" >Let's Get Started!</h1>
-            <h3 className="text-center">Create new account to access all features</h3>
+            <h3 className="text-center px-3">Create new account to access all features</h3>
         </header>
 
         <div className="regist-form">
             <form action="">
                 <div className="mb-3 input-field">
-                    <label htmlFor="inputName" className="form-label">Name</label>
-                    <input type="text" name='username' value={inputData.username} onChange={onChange} className="form-control" id="inputName" placeholder="Name" />
+                    <label htmlFor="inputName" className="form-label d-block">Name</label>
+                    <input type="text" name='username' value={inputData.username} onChange={onChange} className="form-input" id="inputName" placeholder="Name" />
                 </div>
                 <div className="mb-3 input-field">
-                    <label htmlFor="inputEmail" className="form-label">Email</label>
-                    <input type="email" name="email" value={inputData.email} onChange={onChange} className="form-control" id="inputEmail" placeholder="Enter email address" />
+                    <label htmlFor="inputEmail" className="form-label d-block">Email</label>
+                    <input type="email" name="email" value={inputData.email} onChange={onChange} className="form-input" id="inputEmail" placeholder="Enter email address" />
                 </div>
                 <div className="mb-3 input-field">
-                    <label htmlFor="inputPassword" className="form-label">Password</label>
-                    <input type="password" name="password" value={inputData.password} onChange={onChange} className="form-control" id="inputPassword" placeholder="Password" />
+                    <label htmlFor="inputPassword" className="form-label d-block">Password</label>
+                    <input type="password" name="password" value={inputData.password} onChange={onChange} className="form-input" id="inputPassword" placeholder="Password" />
                 </div>
                 <div className="form-check">
                     <input type="checkbox" className="form-check-input" id="check" />
@@ -70,8 +71,8 @@ const Regist = ({regist}) => {
         <p className="login-here text-center">Already have account? <Link to={'/login'}>Log in Here</Link></p>
         
         <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
-    </section>}
-    </>
+    </section>
+    // }</>
         
   )
 };

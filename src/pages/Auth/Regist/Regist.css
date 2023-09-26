@@ -48,7 +48,7 @@ header h3 {
     margin-top: 20px;
 }
 
-.form-control {
+.form-input {
     width: 426px;
     height: 64px;
     flex-shrink: 0;
@@ -58,6 +58,7 @@ header h3 {
 }
 
 .input-field input:focus {
+    outline: none;
     border-radius: 6px;
     border: 1px solid #EFC81A;
     background: #FFF;
@@ -86,7 +87,6 @@ header h3 {
     border-color:#EFC81A
 }  
 
-.regist-form
 form
 .regist-button {
     width: 426px;
@@ -135,4 +135,22 @@ form
 .forgot-password a:hover,
 .login-here a:hover {
     text-decoration: underline;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .regist-form {
+        width: 95%;
+    }
+
+    input.form-input {
+        width: 100%;
+    }
+
+    form
+    .regist-button {
+        width: 100%;
+        height: fit-content;
+        padding: 17px 0;
+    }
 }
