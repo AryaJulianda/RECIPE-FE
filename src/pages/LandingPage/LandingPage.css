@@ -7,9 +7,8 @@
 .header-landing .box-left h1 {
   color: #2E266F;
   font-size: 72px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 90px;
+  line-height: normal;
   text-transform: capitalize;
   margin-bottom: 26px;
 }
@@ -17,12 +16,11 @@
 .header-landing .box-left .search-bar {
   display: flex;
   width: 670px;
-  height: 90px;
   flex-shrink: 0;
   border-radius: 15px;
   background: #EFEFEF;
-  color: #B6B6B6;
-  padding: 0 50px;
+  color: #7e7e7e;
+  padding: 40px;
   text-decoration: none;
 }
 
@@ -34,11 +32,13 @@
 .header-landing .box-left .search-bar p {
   font-size: 18px;
   font-weight: 400;
-  line-height: 90px;
+  margin-bottom: 0;
   text-decoration: none;
 }
 
 .box-right .box-img {
+  position: relative;
+  z-index: 2;
   width: 700px;
   height:700px;
   background-image: url(../img/box-img.jpg);
@@ -54,7 +54,7 @@
   position: absolute;
   top:0;
   right: 0;
-  z-index: -1;
+  z-index: 1;
 }
 
 /* popular */
@@ -63,7 +63,6 @@
   font-size: 48px;
   font-style: normal;
   font-weight: 500;
-  line-height: 62px;
   text-transform: capitalize;
   padding:30px;
   border-left:25px solid #EFC81A;
@@ -75,11 +74,20 @@
   background-size: cover;
 }
 
+.popular {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+  align-items: center;
+}
 
 .popular-img {
   background-image: url(../img/popular.jpg);
   width: 830px;
   height: 830px;
+  position: relative;
+  z-index: 3;
 }
 
 .popular-text {
@@ -128,7 +136,7 @@
   left:0;
   margin-top: 80px;
   margin-left: 80px;
-  z-index: -99;
+  z-index: 1;
 }
 
 
@@ -142,6 +150,8 @@
   background-image: url(../img/new.jpg);
   width: 800px;
   height: 800px;
+  position: relative;
+  z-index: 4;
 }
 
 .yellow-box-2 {
@@ -152,11 +162,17 @@
   left: 0;
   background-color: #EFC81A;
   margin-top: -880px;
-  z-index: -99;
+  z-index: 3;
 }
 
 /* img galery */
-
+.container-galery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:40px;
+  justify-content: center;
+}
 .img-recipe {
   height:500px;
   width: 500px;
@@ -168,7 +184,6 @@
   justify-content:end;
   text-align: start;
   padding: 35px;
-  margin:0 0 75px;
 }
 
 .img-recipe .title {
@@ -196,4 +211,366 @@
 }
 .recipe-6 {
   background-image: url(../img/6.png);
+}
+
+/* small desk */
+@media only screen and (min-width: 992px) and (max-width: 1380px){
+  /*Header*/
+
+  .header-landing {
+    margin: 10px 0;
+  }
+
+  .header-landing .box-left h1 {
+    font-size: 50px;
+    line-height: normal;
+  }
+
+  .header-landing .box-left .search-bar {
+    width: 370px;
+    border-radius: 15px;
+    padding:20px;
+  }
+
+  .header-landing .box-left .search-bar img {
+    width: 20px;
+    margin-right: 15px;
+  }
+
+  .header-landing .box-left .search-bar p {
+    font-size: 18px;
+  }
+
+  .box-right .box-img {
+    width: 400px;
+    height:400px;
+  }
+
+  .yellow-box {
+    width: 300px;
+    height: 670px;
+  }
+
+  /* popular */
+  .landing-tag {
+    color: #3F3A3A;
+    font-size: 32px;
+    padding:20px;
+    margin: 100px 0;
+    border-left:25px solid #EFC81A;
+  }
+
+  .popular-img {
+    width: 400px;
+    height: 400px;
+  }
+
+  .popular-text {
+    width: fit-content;
+  }
+
+  .popular .popular-text h2{
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .popular .popular-text p {
+    font-size: 22px;
+  }
+
+  .popular-text button {
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: normal;
+    padding:15px 30px;
+  }
+
+  .yellow-border-box {
+    width: 400px;
+    height: 400px;
+    border:3px solid #EFC81A;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+
+
+  /* new recipe */
+
+  .tag-new-recipe {
+    margin:150px 0;
+  }
+
+  .new-recipe-img {
+    min-width: 400px;
+    height: 400px;
+  }
+
+  .yellow-box-2 {
+    width: 248px;
+    height: 550px;
+    top: 10;
+    left: 0;
+    margin-top: -480px;
+  }
+
+  /* img galery */
+  .container-galery {
+    gap: 20px;
+  }
+
+  .img-recipe {
+    height:270px;
+    width: 270px;
+    border-radius: 15px;
+    padding: 15px;
+  }
+
+  .img-recipe .title {
+    font-size: 20px;
+  }
+}
+
+/* tablet */
+@media only screen and  (max-width: 991px){
+    /*Header*/
+
+    .header-landing {
+      margin: 10px 0;
+    }
+  
+    .header-landing .box-left h1 {
+      font-size: 50px;
+      line-height: normal;
+    }
+  
+    .header-landing .box-left .search-bar {
+      width: 370px;
+      border-radius: 15px;
+      padding:20px;
+    }
+  
+    .header-landing .box-left .search-bar img {
+      width: 20px;
+      margin-right: 15px;
+    }
+  
+    .header-landing .box-left .search-bar p {
+      font-size: 18px;
+    }
+  
+    .box-right .box-img {
+      width: 400px;
+      height:400px;
+    }
+  
+    .yellow-box {
+      width: 300px;
+      height: 670px;
+    }
+  
+    /* popular */
+    .landing-tag {
+      color: #3F3A3A;
+      font-size: 32px;
+      padding:20px;
+      margin: 100px 0;
+      border-left:25px solid #EFC81A;
+    }
+  
+    .popular-img {
+      width: 400px;
+      height: 400px;
+    }
+  
+    .popular-text {
+      width: fit-content;
+    }
+  
+    .popular .popular-text h2{
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+  
+    .popular .popular-text p {
+      font-size: 22px;
+    }
+  
+    .popular-text button {
+      margin-top: 30px;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: normal;
+      padding:15px 30px;
+    }
+  
+    .yellow-border-box {
+      width: 400px;
+      height: 400px;
+      border:3px solid #EFC81A;
+      margin-top: 30px;
+      margin-left: 30px;
+    }
+  
+  
+    /* new recipe */
+  
+    .tag-new-recipe {
+      margin:150px 0;
+    }
+  
+    .new-recipe-img {
+      width: 400px;
+      height: 400px;
+    }
+  
+    .yellow-box-2 {
+      width: 248px;
+      height: 550px;
+      top: 10;
+      left: 0;
+      margin-top: -480px;
+    }
+  
+    /* img galery */
+    .container-galery {
+      gap: 20px;
+    }
+  
+    .img-recipe {
+      height:270px;
+      width: 270px;
+      border-radius: 15px;
+      padding: 15px;
+    }
+  
+    .img-recipe .title {
+      font-size: 20px;
+    }
+}
+
+/* phone */
+@media only screen and (max-width: 576px){
+  /*Header*/
+
+  .header-landing {
+    margin: 10px 0;
+  }
+
+  .header-landing .box-left h1 {
+    font-size: 24px;
+    line-height: normal;
+  }
+
+  .header-landing .box-left .search-bar {
+    width: 270px;
+    border-radius: 15px;
+    padding:15px;
+  }
+
+  .header-landing .box-left .search-bar img {
+    width: 20px;
+    margin-right: 15px;
+  }
+
+  .header-landing .box-left .search-bar p {
+    font-size: 14px;
+  }
+
+  .box-right .box-img {
+    display: none;
+  }
+
+  .yellow-box {
+    width: 300px;
+    height: 670px;
+    display: none;
+  }
+
+  /* popular */
+  .landing-tag {
+    font-size: 16px;
+    padding:14px;
+    margin: 30px 0;
+    border-left:5px solid #EFC81A;
+    line-height: normal;
+  }
+
+  .popular {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .popular-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .popular-text {
+    width: fit-content;
+  }
+
+  .popular .popular-text h2{
+    font-size:18px;
+    margin-bottom: 20px;
+  }
+
+  .popular .popular-text p {
+    font-size: 14px;
+    margin-bottom: 0;
+    line-height: normal;
+  }
+
+  .popular-text button {
+    margin-top: 30px;
+    font-size: 14px;
+    padding:15px 30px;
+  }
+
+  .yellow-border-box {
+    width: 200px;
+    height: 200px;
+    border:3px solid #EFC81A;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+
+
+  /* new recipe */
+  
+  .tag-new-recipe {
+    margin:70px 0 30px;
+  }
+
+  .new-recipe-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+  }
+
+  .yellow-box-2 {
+    display: none;
+  }
+
+  /* img galery */
+  .container-galery {
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+
+  .img-recipe {
+    height:140px;
+    width: 140px;
+    border-radius: 15px;
+    padding: 15px;
+  }
+
+  .img-recipe .title {
+    color: #141414;
+    font-size: 15px;
+    line-height: normal;
+    margin-bottom: 0;
+  }
 }

@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/Footer'
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="">
       <Navbar/>
       <div className="container-fluid">
         <main>
@@ -35,12 +35,12 @@ const LandingPage = () => {
             <div className="yellow-box"></div>
           
             <h3 className="landing-tag">Popular For You</h3>
-            <div className="row popular">
-                <div className="col-6 position-relative">
+            <div className="popular">
+                <div className="">
                     <div className="popular-img img"></div>
                     <div className="yellow-border-box"></div>
                 </div>
-                <div className="col-6 d-flex justify-content-end align-items-center">
+                <div className="">
                     <div className="popular-text">
                         <h2>Healthy Bone Broth Ramen (Quick & Easy)</h2>
                         <p>Quick + Easy Chicken Bone Broth Ramen- Healthy chicken ramen in a hurry? That’s right!</p>
@@ -50,54 +50,38 @@ const LandingPage = () => {
             </div>
 
             <h3 className="landing-tag tag-new-recipe">New Recipe</h3>
-            <div className="row popular">
-                <div className="col-6">
-                    <div className="new-recipe-img img"></div>
-                </div>
-                <div className="col-6 d-flex justify-content-end align-items-center">
-                    <div className="popular-text">
-                        <h2>Healthy Bone Broth Ramen (Quick & Easy)</h2>
-                        <p>Quick + Easy Chicken Bone Broth Ramen- Healthy chicken ramen in a hurry? That’s right!</p>
-                        <button className="btn">Learn More</button>
-                    </div>
+            <div className="popular">
+                  <div className="new-recipe-img img"></div>
+                <div className="">
+                  <div className="popular-text">
+                    <h2>Healthy Bone Broth Ramen (Quick & Easy)</h2>
+                    <p>Quick + Easy Chicken Bone Broth Ramen- Healthy chicken ramen in a hurry? That’s right!</p>
+                    <button className="btn">Learn More</button>
+                  </div>
                 </div>
             </div>
             <div className="yellow-box-2"></div>
 
   
             <h3 className="landing-tag tag-new-recipe">Popular Recipe</h3>
-            <div className="container-fluid mb-5">
-              <div className="row recipes">
-                <div className="col-4">
-                  <div className="img-recipe recipe-1">
-                    <h3 className="title">Chicken Kare</h3>
-                  </div>
-                </div>
-                <div className="col-4">
-                  <div className="img-recipe recipe-2">
-                    <h3 className="title">Chicken Kare</h3>
-                  </div>
-                </div>
-                <div className="col-4">
-                  <div className="img-recipe recipe-3">
-                    <h3 className="title">Chicken Kare</h3>
-                  </div>
-                </div>
-                <div className="col-4">
-                  <div className="img-recipe recipe-4">
-                    <h3 className="title">Chicken Kare</h3>
-                  </div>
-                </div>
-                <div className="col-4">
-                  <div className="img-recipe recipe-5">
-                    <h3 className="title">Chicken Kare</h3>
-                  </div>
-                </div>
-                <div className="col-4">
-                  <div className="img-recipe recipe-6">
-                    <h3 className="title">Chicken Kare</h3>
-                  </div>
-                </div>
+            <div className="container-galery mb-5">
+              <div className="img-recipe recipe-1">
+                <h3 className="title">Chicken Kare</h3>
+              </div>
+              <div className="img-recipe recipe-2">
+                <h3 className="title">Chicken Kare</h3>
+              </div>
+              <div className="img-recipe recipe-3">
+                <h3 className="title">Chicken Kare</h3>
+              </div>
+              <div className="img-recipe recipe-4">
+                <h3 className="title">Chicken Kare</h3>
+              </div>
+              <div className="img-recipe recipe-5">
+                <h3 className="title">Chicken Kare</h3>
+              </div>
+              <div className="img-recipe recipe-6">
+                <h3 className="title">Chicken Kare</h3>
               </div>
             </div>
 

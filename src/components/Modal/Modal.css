@@ -9,8 +9,8 @@
 }
 
 .modal-body {
-    background: #FFF;
-    padding:40px 80px ;
+    background: #000;
+    padding:80px 180px ;
     width: 500px;
     /* margin-left: -50px; */
 }

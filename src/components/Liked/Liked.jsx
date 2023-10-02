@@ -1,7 +1,7 @@
 import '../Cards/Cards.css';
 
-const Bookmarked = ({ recipes}) => {
-
+const Liked = ({ recipes}) => {
+    // console.log(recipes)
     return (
         <div id="cards-body">
             <h1 className="empty">Empty Recipe</h1>
@@ -9,7 +9,7 @@ const Bookmarked = ({ recipes}) => {
     );
 };
 
-export default Bookmarked;
+export default Liked;
 
 // <div className="card" key={recipe.recipe_id}>
 //     <div className="row g-0">

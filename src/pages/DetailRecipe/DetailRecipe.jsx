@@ -1,9 +1,7 @@
 import {useState,useEffect} from "react";
 import { useParams,useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 import Navbar from "../../components/Navbar/Navbar";
-import InfoProfile from '../../components/InfoProfile/InfoProfile';
 import Footer from '../../components/Footer/Footer';
 import DataRecipe from '../../components/DataRecipe/DataRecipe';
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +17,6 @@ export default function DetailRecipe () {
         photo:recipe.author_photo
     }
     const {recipeId} = useParams();
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -31,7 +28,6 @@ export default function DetailRecipe () {
             <>
                 <Navbar />
                 <main>
-                    <InfoProfile user={user}/>  
                     <DataRecipe recipe={recipe}/>
                 </main>
                 <Footer />

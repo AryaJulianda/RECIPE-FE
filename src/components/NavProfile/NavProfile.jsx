@@ -1,19 +1,11 @@
 import './NavProfile.css';
 
-export default function NavProfile ({setActiveComponent}) {
+export default function NavProfile ({activeComponent,setActiveComponent}) {
     return (
-        <div className="option container-fluid">
-            <div className="row">
-                <div className="col-7">
-                    <nav className="navbar navbar-expand-lg nav-option d-flex justify-content-center">
-                        <div className="navbar-nav">
-                            <a className="nav-link active" onClick={() => setActiveComponent('recipes')}>Recipes</a>
-                            <a className="nav-link" onClick={() => setActiveComponent('bookmarked')}>Bookmarked</a>
-                            <a className="nav-link" href="#">Liked</a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
+        <div className="navbar-wrapper">
+            <p className={activeComponent=='myRecipes'? "navbar-link navbar-link-active" : "navbar-link navbar-link-disactive"} onClick={() => setActiveComponent('myRecipes')}>My Recipes</p>
+            <p className={activeComponent=='bookmarked'? "navbar-link navbar-link-active" : "navbar-link navbar-link-disactive"} onClick={() => setActiveComponent('bookmarked')}>Bookmarked</p>
+            <p className={activeComponent=='liked'? "navbar-link navbar-link-active" : "navbar-link navbar-link-disactive"} onClick={() => setActiveComponent('liked')}>Liked</p>
         </div>
     )
 }

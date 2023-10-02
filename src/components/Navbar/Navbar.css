@@ -1,19 +1,44 @@
 /* navigation */
 .nav-body {
-    width: 100%;
-    padding: 40px 70px;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background: white;
+    position: fixed;
+    box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.1);
+
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo-img {
+    width: 60px;
+}
+
+.logo p {
+    font-weight: 600;
+    font-size: 28px;
+    color: #EFC81A;
+    margin-bottom: 0;
 }
 
 .link-wrap {
+    flex: 1 1 0%;
     background-color: #fff;
     display: flex;
     flex-direction: row;
     gap: 70px;
+    margin-left: 70px;
     width: fit-content;
     height: fit-content;
 }
@@ -51,45 +76,48 @@
     background-size: cover;
 }
 
-.nav-profile span{
-    align-items: center;
-    color: #000;
-    font-size: 20px;
-    font-style: normal;
-    line-height:normal;
-    text-transform: capitalize;
-}
-
-.nav-profile span .nav-profile-name{
-    font-weight: 400;
-    color: black;
-}
-
-.nav-profile span .link-style {
+.link-style {
     text-decoration: none;
 }
 
-.nav-profile span .link-style:hover {
-    text-decoration: underline;
+.nav-profile .profile-name-navbar{
+    font-weight: 500;
+    font-size: 24px;
+    color: #2E266F;
+    text-decoration:none;
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
-.nav-profile span .logout {
-    font-weight: 700;
-    color:black;
+.sidebar-btn {
+    display: none;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1280px) {
     .nav-body {
-        padding: 20px 50px;
+        padding: 16px 40px;
         margin-bottom: 30px;
+    }
+
+    .logo {
+        gap: 20px;
+    }
+    
+    .logo-img {
+        width: 30px;
+    }
+    
+    .logo p {
+        font-size: 18px;
     }
     
     .link-wrap {
         gap: 60px;
+        margin-left: 60px;
     }
     
     .link-item {
-        font-size: 18px; 
+        font-size: 16px; 
     }
 
     .nav-img-circle {
@@ -105,7 +133,7 @@
         border-left: 3px solid #EFC81A;
     }
 
-    .nav-profile span {
+    .nav-profile .profile-name-navbar{
         font-size: 14px;
     }
 }
@@ -115,7 +143,22 @@
         padding: 20px 30px;
         margin-bottom: 30px;
     }
+    .logo {
+        gap: 20px;
+    }
     
+    .logo-img {
+        width: 30px;
+    }
+    
+    .logo p {
+        font-size: 18px;
+    }
+    
+    .link-wrap {
+        gap: 60px;
+        margin-left: 60px;
+    }
     .link-wrap {
         gap: 30px;
     }
@@ -137,20 +180,33 @@
         border-left: 2px solid #EFC81A; 
     }
 
-    .nav-profile span {
-        font-size: 12px; 
+    .nav-profile .profile-name-navbar{
+        font-size: 14px;
     }
 
 }
 
 @media only screen and (max-width: 576px) {
     .nav-body {
-        padding: 10px 17px;
+        padding: 15px 17px;
         margin-bottom: 30px;
+    }
+    .logo {
+        gap: 20px;
+    }
+    
+    .logo-img {
+        width: 20px;
+    }
+    
+    .logo p {
+        font-size: 14px;
     }
     
     .link-wrap {
         gap: 30px;
+        margin-left: 30px;
+        display: none;
     }
     
     .link-item {
@@ -168,9 +224,50 @@
         height: 28px;
         padding: 6px;
         border-left: 2px solid #EFC81A;
+        display: none;
     }
 
     .nav-profile span {
         font-size: 10px;
     }
+
+    .sidebar-btn {
+        display: inline;
+        width: 24px;
+        fill: #EFC81A;
+    }
+
+    .side-menu {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 70%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+    }
+    .close {
+        width: 24px;
+        align-self: self-end;
+        margin: 20px;
+    }
+
+    .side-link-body {
+        display: flex;
+        flex-direction: column;
+    }
+    .side-link {
+        text-align: center;
+        padding: 20px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #2E266F;
+        border-top:2px solid #ebeaf3 ;
+    }
+    .side-link-body .logout{
+        color: salmon;
+    }
+
+
 } 

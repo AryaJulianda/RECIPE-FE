@@ -2,35 +2,25 @@ import './Cards.css';
 
 const Cards = ({ recipes,onClick}) => {
     return (
-        <div id="cards">
+        <div id="cards-body">
             {recipes ?
             recipes?.map((recipe) => {
                 return (
-                    <div className="card" key={recipe.recipe_id} onClick={() => {onClick(recipe.recipe_id)}} >
-                        <div className="row g-0">
-                            <div className="col img-card">
-                                <img src={recipe.img} className="img-fluid rounded-start" alt={recipe.title} />
-                            </div>
-                            <div className="col">
-                                <div className="card-body d-flex flex-column align-items-start justify-content-center">
-                                    <div className="card-identitas">       
-                                        <h5 className="card-title">{recipe.title}</h5>
-                                        <p className="card-text">Ingredients: <br />{recipe.ingredients}</p>
-                                    </div>
-                                    <div className="card-stats ">
-                                        <div className="stats fw-medium"><span>0 Like - 0 Comment - 0 Bookmark</span></div>
-                                        <div className="author d-flex justify-content-start align-items-center">
-                                            <img src={recipe?.author_photo === null ? 'https://res.cloudinary.com/dgwlgaxtm/image/upload/v1692137796/qszxjbs1rkjigjcrdqs1.jpg' : recipe.author_photo} alt="" height="68px" width="68px" />
-                                            <span className="fw-medium"> {recipe.author} </span>
-                                        </div>
-                                    </div> 
-                                </div>
+                    <div className="card-item" key={recipe.recipe_id} onClick={() => {onClick(recipe.recipe_id)}} >
+                        <div className="left-card" style={{backgroundImage:`url("${recipe.img}")`}}/>
+                        <div className="right-card">  
+                            <h5 className="card-title">{recipe.title}</h5>
+                            <p className="card-ingredients">Ingredients: <br />{recipe.ingredients}</p>
+                            <div className="card-stats">0 Like - 0 Comment - 0 Bookmark</div>
+                            <div className="card-author">
+                                {/* <div className='author-photo' style={{backgroundImage:`url("${recipe.author_photo}")`}} /> */}
+                                <div className='author-photo' style={{backgroundImage:`url("${recipe?.author_photo === null ? 'https://res.cloudinary.com/dgwlgaxtm/image/upload/v1692137796/qszxjbs1rkjigjcrdqs1.jpg' : recipe.author_photo}")`}} />
+                                <span className="author-name"> {recipe.author} </span>
                             </div>
                         </div>
                     </div>
-              
                 )
-            }) : <h1>Recipe not Found :(</h1>
+            }) : <h1 className='not-found'>Recipe not Found :(</h1>
             }
         </div>
     );

@@ -34,7 +34,10 @@ export const getAllRecipesById = () => {
         const user_id = auth.user.user_id;
         try {
           dispatch({type:'PENDING'})
-          const res = await axios.get(`${serverUrl}/recipe/my_recipe/` + user_id)
+          const res = await axios.get(`${serverUrl}/recipe/my_recipe/` + user_id,{
+            headers:{
+              Authorization:`Bearer ${localStorage.getItem('access_token')}`
+            }})
           dispatch({type:'GET_RECIPES_BY_ID_SUCCESS',payload:res.data});
         }catch(err){
           dispatch({type:'GET_RECIPES_BY_ID_FAILED',error:err.message})

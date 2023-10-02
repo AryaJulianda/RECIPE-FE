@@ -10,7 +10,7 @@
   width: 280px;
   height: 280px;
   flex-shrink: 0;
-  border-radius: 280px;
+  border-radius: 50%;
   background: url(../img/Ellipse\ 129.jpg);
   background-size: cover;
   background-position: center;
@@ -18,18 +18,28 @@
   margin:0 auto 20px;
 }
 
-.change-photo-profile {
-  color: #2E266F;
+.label-file-upload {
+  color: #fff;
   text-align: center;
+  background:#EFC81A ;
+  padding: 20px;
+  width: fit-content;
+  margin: auto;
   font-size: 18px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
   text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
+  border:2px solid #EFC81A
 }
 
-.change-photo-profile:hover {
-  text-decoration: underline;
+.form-edit-profile .update-button:hover ,
+.label-file-upload:hover {
+  background:white;
+  color: #EFC81A;
+  border:2px solid #EFC81A
 }
 
 /* form-edit-profile */
@@ -57,8 +67,7 @@
 
 .form-edit-profile input {
   width: 426px;
-  height: 64px;
-  flex-shrink: 0;
+  padding: 20px;
   border-radius: 6px;
   border: 1px solid #8692A6;
   background: #FFF;
@@ -67,7 +76,7 @@
 
 .form-edit-profile .update-button {
   width: 426px;
-  height: 64px;
+  padding: 20px;
   flex-shrink: 0;
   border-radius: 6px;
   background: #EFC81A;
@@ -79,6 +88,7 @@
   font-weight: 500;
   line-height: normal;
   margin-top: 45px;
+  border:2px solid #EFC81A
 }
 
 .change-password {
@@ -104,14 +114,190 @@
   text-decoration: underline;
 }
 
+/* small desk */
+@media only screen and (min-width: 992px) and (max-width: 1280px){
+  /* photo profile */
+  .edit-photo-profile {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
 
-/* change password page */
-/* .header {
-  color: #EFC81A;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-align: center;
-  margin: 150px auto;
-} */
+  .photo-profile {
+    width: 220px;
+    height: 220px;
+    margin:0 auto 20px;
+  }
+
+  .label-file-upload {
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 7px;
+    border:2px solid #EFC81A
+  }
+
+  /* form-edit-profile */
+  .form-control:focus {
+    border-radius: 6px;
+    border: 1px solid #EFC81A;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  }
+
+  .form-edit-profile {
+  }
+
+  .form-edit-profile .form-label {
+    font-size: 16px;
+  }
+
+  .form-edit-profile input {
+    width: 426px;
+    padding: 17px;
+    border-radius: 6px;
+    border: 1px solid #8692A6;
+    margin-bottom: 16px;
+  }
+
+  .form-edit-profile .update-button {
+    width: 426px;
+    padding: 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 45px;
+  }
+
+  .change-password {
+    font-size: 13px;
+    margin-top: 25px;
+  }
+
+  .change-password a {
+    font-size: 13px;
+  }
+}
+
+/* tablet */
+@media only screen and  (max-width: 991px){
+  /* photo profile */
+  .edit-photo-profile {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+
+  .photo-profile {
+    width: 220px;
+    height: 220px;
+    margin:0 auto 20px;
+  }
+
+  .label-file-upload {
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 7px;
+    border:2px solid #EFC81A
+  }
+
+  /* form-edit-profile */
+  .form-control:focus {
+    border-radius: 6px;
+    border: 1px solid #EFC81A;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  }
+
+  .form-edit-profile {
+  }
+
+  .form-edit-profile .form-label {
+    font-size: 16px;
+  }
+
+  .form-edit-profile input {
+    width: 426px;
+    padding: 17px;
+    border-radius: 6px;
+    border: 1px solid #8692A6;
+    margin-bottom: 16px;
+  }
+
+  .form-edit-profile .update-button {
+    width: 426px;
+    padding: 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 45px;
+  }
+
+  .change-password {
+    font-size: 13px;
+    margin-top: 25px;
+  }
+
+  .change-password a {
+    font-size: 13px;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 576px){
+  /* photo profile */
+  .edit-photo-profile {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .photo-profile {
+    width: 120px;
+    height: 120px;
+    margin:0 auto 20px;
+  }
+
+  .label-file-upload {
+    padding: 7px;
+    font-size: 10px;
+    border-radius: 7px;
+    border:2px solid #EFC81A;
+    margin-bottom: 0;
+  }
+
+  /* form-edit-profile */
+  .form-control:focus {
+    border-radius: 6px;
+    border: 1px solid #EFC81A;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  }
+
+  .form-edit-profile {
+  }
+
+  .form-edit-profile .form-label {
+    font-size: 13px;
+  }
+
+  .form-edit-profile input {
+    width: 326px;
+    padding: 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #8692A6;
+    margin-bottom: 6px;
+  }
+
+  .form-edit-profile .update-button {
+    width: 326px;
+    padding: 13px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+
+  .change-password {
+    font-size: 13px;
+    margin-top: 25px;
+  }
+
+  .change-password a {
+    font-size: 13px;
+  }
+}

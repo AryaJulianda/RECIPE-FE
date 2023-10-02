@@ -2,9 +2,8 @@ import React,{useState,useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
 
 import Navbar from "../../components/Navbar/Navbar";
-import InfoProfile from '../../components/InfoProfile/InfoProfile';
 import NavProfile from '../../components/NavProfile/NavProfile';
-import Recipes from '../../components/Recipes/Recipes';
+import Recipes from '../../components/MyRecipes/MyRecipes';
 import Pagination from "../../components/Pagination/Pagination";
 import Footer from '../../components/Footer/Footer';
 import ModalComponent from '../../components/Modal/Modal'
@@ -13,7 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteRecipe, getAllRecipesById,getRecipeById } from "../../actions/recipeAction";
 import Loading from "../../components/Loading/Loading";
 import Bookmarked from "../../components/Bookmarked/Bookmarked";
-
+import MyRecipes from "../../components/MyRecipes/MyRecipes";
+import Liked from "../../components/Liked/Liked";
 export default function DetailProfile () {
 
     const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export default function DetailProfile () {
     // console.log(recipes)
 
     const {showModal,modalMessage,isLoading} = useSelector((state)=> state.recipes)
-    const [activeComponent, setActiveComponent] = useState('recipes');
+    const [activeComponent, setActiveComponent] = useState('myRecipes');
 
     useEffect(()=> {
         dispatch(getAllRecipesById())
@@ -53,11 +53,11 @@ export default function DetailProfile () {
         {isLoading? <Loading/> :
         <>
             <Navbar />
-            <main>
-                <InfoProfile user={user}/>
-                <NavProfile setActiveComponent={setActiveComponent}/>
-                {activeComponent === 'recipes' && (<Recipes recipes={recipes} handleDelete={handleDelete} handleEdit={handleEdit} handleClick={handleClick}/>)}
-                {activeComponent === 'bookmarked' && <Bookmarked recipes={recipes} handleClick={handleClick}/>}
+            <main className="min-vh-100">
+                <NavProfile activeComponent={activeComponent} setActiveComponent={setActiveComponent}/>
+                {activeComponent === 'myRecipes' && (<MyRecipes recipes={recipes} handleDelete={handleDelete} handleEdit={handleEdit} handleClick={handleClick}/>)}
+                {activeComponent === 'bookmarked' && (<Bookmarked recipes={recipes} handleClick={handleClick}/>)}
+                {activeComponent === 'liked' && (<Liked recipes={recipes} handleClick={handleClick}/>)}
             {/* <Pagination /> */}
             </main>
             <Footer />

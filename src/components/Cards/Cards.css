@@ -1,351 +1,292 @@
-.empty {
-    text-align: left;
-    margin: 200px 350px;
-}
-
-#cards {
-    margin-top: 70px;
-}
-
-#cards
-.card {
-    border: none;
-    margin-top: 40px;
-    width: 1000px; 
-    height: 500px;
-}
-
-#cards
-.card .img-card {
-    margin-right: 30px;
-    width: 500px;
-    height: 500px;
-}
-
-#cards
-.card .img-card img {
+#cards-body {
     width: 100%;
-    height: 100%;
-    /* width: 500px;
-    height: 500px; */
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+    padding: 50px 0;
 }
 
-#cards
-.card .card-body {
-    height: 100%;
+#cards-body .card-item{
+    cursor: pointer;
+    width: 1000px;
+    height: 500px;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
 }
 
-#cards
-.card .card-body .card-title {
+.card-item .left-card {
+    min-width: 50%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    border-radius:20px ;
+}
+
+.card-item .right-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 40px;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.empty,
+.right-card .card-title {
     color: #3F3A3A;
     font-size: 32px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+    font-weight: 600;
     text-transform: capitalize;
 }
 
-#cards
-.card .card-body .card-text {
+.right-card .card-title:hover {
+    text-decoration: underline;
+}
+
+.right-card .card-ingredients {
     color: #3F3A3A;
     font-size: 24px;
-    font-style: normal;
     font-weight: 500;
-    line-height: normal;
+    flex: 1 1 0%;
+    max-height: 150px;
+    overflow-y: auto;
     text-transform: capitalize;
-    width: 100%;
 }
 
-#cards
-.card .card-body .card-stats {
-    margin-top: 20px;
+.card-ingredients::-webkit-scrollbar {
+    display: none;
+  }
+.card-ingredients {
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
 }
 
-#cards
-.card .card-body .card-stats .stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 325px;
-    height: 42px;
-    flex-shrink: 0;
-    border-radius: 6px;
-    background: #EFC81A;
-}
-
-#cards
-.card .card-body .card-stats .stats span{
-    display: inline-block;
+.right-card .card-stats {
     color: #FFF;
+    background-color: #eec302;
     font-size: 16px;
-    font-style: normal;
+    font-weight: 600;
+    padding: 13px;
+    border-radius: 10px;
 }
 
-#cards
-.card .card-body .author {
-    margin-top: 20px;
+.card-author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
 }
 
-#cards
-.card .card-body .author img {
-    margin-right: 24px;
-    border-radius: 50%;
+.card-author .author-photo {
+    width: 68px;
+    height: 68px;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
-#cards
-.card .card-body .author span {
-    color: #3F3A3A; 
+.card-author .author-name {
+    color: #3F3A3A;
     font-size: 24px;
+    font-weight: 600;
 }
 
-.card-btn button{    
-    font-weight: 500;
-    font-size:16px;
-    border-radius: 6px;  
-    color:#fff;
-    padding:10px 20px;
-    margin-top: 20px;
-    margin-right: 20px;
+.card-button {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
-#edit-btn {
-    background-color: #30C0F3;    
+.right-card .button {
     color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 13px;
+    border-radius: 10px;
 }
 
-#delete-btn {
-    background-color: #F57E71;
-    color:#FFF;
-} 
+.edit-btn {
+    background-color: #30C0F3;
+}
 
-/* @media only screen and (min-width: 992px) and (max-width: 1280px) {
-    #cards
-    .card {
-        max-width: 600px;
-        max-height: 300px;
-        margin-top: 30px;
-    }
+.delete-btn {
+    background-color: salmon;
+}
 
-    #cards
-    .img-card {
-        margin-right: 0;
-    }
-
-    #cards
-    .card-title {
-        font-size: 24px;
+@media only screen and (min-width: 992px) and (max-width: 1280px) {
+    #cards-body {
+        gap:30px;
+        padding: 40px 0;
     }
     
-    #cards
-    .card-text {
+    #cards-body .card-item{
+        width: 600px;
+        height: 300px;
+        border-radius: 20px;
+    }
+    
+    .card-item .left-card {
+        min-width: 50%;
+        height: 100%;
+        border-radius:20px ;
+    }
+    
+    .card-item .right-card {
+        padding: 24px;
+        gap: 10px;
+    }
+    
+    .right-card .card-title {
+        font-size: 22px;
+    }
+    
+    .right-card .card-ingredients {
         font-size: 16px;
-        width: 100%;
-    }
-
-    #cards
-    .stats {
-        width: 255px;
-        height: 34px;
-        border-radius: 3px;
+        max-height: 160px;
     }
     
-    #cards
-    .stats span{
-        color: #FFF;
+    .right-card .card-stats {
+        font-size:12px;
+        padding: 7px;
+        border-radius: 10px;
+    }
+    
+    .card-author {
+        gap: 10px;
+    }
+    
+    .card-author .author-photo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .card-author .author-name {
+        font-size: 16px;
+    }
+
+    .right-card .button {
+        font-size: 14px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and  (max-width: 991px) {
+    #cards-body {
+        gap:30px;
+        padding: 40px 0;
+    }
+    
+    #cards-body .card-item{
+        width: 600px;
+        height: 300px;
+        border-radius: 20px;
+    }
+    
+    .card-item .left-card {
+        min-width: 50%;
+        height: 100%;
+        border-radius:20px ;
+    }
+    
+    .card-item .right-card {
+        padding: 24px;
+        gap: 10px;
+    }
+    
+    .right-card .card-title {
+        font-size: 22px;
+    }
+    
+    .right-card .card-ingredients {
+        font-size: 16px;
+        max-height: 160px;
+    }
+    
+    .right-card .card-stats {
+        font-size:12px;
+        padding: 7px;
+        border-radius: 10px;
+    }
+    
+    .card-author {
+        gap: 10px;
+    }
+    
+    .card-author .author-photo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .card-author .author-name {
+        font-size: 16px;
+    }
+    .right-card .button {
+        font-size: 14px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #cards-body {
+        gap:20px;
+        padding: 20px 0;
+    }
+    
+    #cards-body .card-item{
+        width: 360px;
+        height: 180px;
+        border-radius: 10px;
+    }
+    
+    .card-item .left-card {
+        min-width: 50%;
+        height: 100%;
+        border-radius:15px ;
+    }
+    
+    .card-item .right-card {
+        padding: 12px;
+        gap: 8px;
+    }
+    
+    .right-card .card-title {
+        font-size: 16px;
+    }
+    
+    .right-card .card-ingredients {
         font-size: 12px;
     }
     
-    #cards
-    .author {
-        margin-top: 16px;
-    }
-
-    #cards
-    .card-stats {
-        margin-top: 16px;
-    }
-
-    #cards
-    .author img {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-    }
-
-    #cards
-    .author span {
-        font-size: 16px;
-    }
-}
-
-@media only screen and (max-width: 991px) {
-    #cards
-    .card {
-        max-width: 500px; 
-        max-height: 250px;
-        margin-top: 20px; 
-    }
-
-    #cards
-    .img-card {
-        margin-right: 0; 
-    }
-
-    #cards
-    .card-title {
-        font-size: 20px; 
-    }
-
-    #cards
-    .card-text {
-        font-size: 14px; 
-        width: 100%; 
-    }
-
-    #cards
-    .author {
-        margin-top: 13px;
+    .right-card .card-stats {
+        font-size:8px;
+        padding: 5px;
+        border-radius: 5px;
     }
     
-    #cards
-    .card-stats {
-        margin-top: 13px;
+    .card-author {
+        gap: 10px;
+    }
+    
+    .card-author .author-photo {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .card-author .author-name {
+        font-size: 13px;
     }
 
-    #cards
-    .stats {
-        width: 220px; 
-        height: 30px; 
-        border-radius: 3px;
+    .card-button {
+        gap: 10px;
     }
-
-    #cards
-    .stats span {
-        color: #FFF;
+    
+    .right-card .button {
         font-size: 10px;
+        padding: 5px;
+        border-radius: 5px;
     }
-
-    #cards
-    .author img {
-        width: 40px; 
-        height: 40px; 
-        margin-right: 8px; 
-    }
-
-    #cards
-    .author span {
-        font-size: 14px; 
-    }
-} */
-
-@media only screen and (max-width: 436px) {
-    #cards {
-        margin-top: 10px;
-    }
-    
-    #cards
-    .card {
-        border: none;
-        margin-top: 40px;
-        width: 380px; 
-        height: 200px;
-        margin-bottom: 300px;
-        background-color: green;
-    }
-    
-    #cards
-    .card .img-card {
-        /* margin-right: 30px; */
-        width: 50%;
-        height: 190px;
-        background-color: red;
-    }
-    
-    
-    #cards
-    .card .card-body {
-        height: 100%;
-    }
-    
-    #cards
-    .card .card-body .card-title {
-        color: #3F3A3A;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        text-transform: capitalize;
-    }
-    
-    #cards
-    .card .card-body .card-text {
-        color: #3F3A3A;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        text-transform: capitalize;
-        width: 100%;
-    }
-    
-    #cards
-    .card .card-body .card-stats {
-        margin-top: 20px;
-    }
-    
-    #cards
-    .card .card-body .card-stats .stats {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 325px;
-        height: 42px;
-        flex-shrink: 0;
-        border-radius: 6px;
-        background: #EFC81A;
-    }
-    
-    #cards
-    .card .card-body .card-stats .stats span{
-        display: inline-block;
-        color: #FFF;
-        font-size: 16px;
-        font-style: normal;
-    }
-    
-    #cards
-    .card .card-body .author {
-        margin-top: 20px;
-    }
-    
-    #cards
-    .card .card-body .author img {
-        margin-right: 24px;
-    }
-    
-    #cards
-    .card .card-body .author span {
-        color: #3F3A3A; 
-        font-size: 24px;
-    }
-    
-    .card-btn button{    
-        font-weight: 500;
-        font-size:16px;
-        border-radius: 6px;  
-        color:#fff;
-        padding:10px 20px;
-        margin-top: 20px;
-        margin-right: 20px;
-    }
-    
-    #edit-btn {
-        background-color: #30C0F3;    
-        color: #FFF;
-    }
-    
-    #delete-btn {
-        background-color: #F57E71;
-        color:#FFF;
-}
-}
+} 

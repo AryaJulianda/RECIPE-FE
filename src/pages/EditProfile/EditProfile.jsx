@@ -77,7 +77,7 @@ const EditProfile = () => {
                 <label htmlFor="inputPassword" className="form-label">Email</label>
                 <input type="email" className="form-control" id="inputEmail" placeholder="Email" value={user?.email} readOnly/>
             </div>
-            <button className="btn update-button" type="button" onClick={handleSubmit}>Update</button>
+            <button className="update-button" type="button" onClick={handleSubmit}>Update</button>
             <p className="change-password">Change Password? <a href="">Click Here</a></p>
         </form>
     </main>
