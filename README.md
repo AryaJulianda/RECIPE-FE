@@ -6,7 +6,7 @@
   <h3 align="center">Mama Recipe</h3>
 
   <p align="center">
-    <a href="https://e82c3767.mama-recipe.pages.dev/">View Demo</a>
+    <a href="https://mama-recipe.pages.dev/">View Demo</a>
     ·
     <a href="https://github.com/AryaJulianda/RECIPE-FE/issues">Report Bug</a>
     ·
