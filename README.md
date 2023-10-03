@@ -75,7 +75,7 @@ VITE_SERVER_URL=[Your BE URL]
 ```
 
 ## Recording
-![](https://giphy.com/clips/studiosoriginals-sleep-tired-sleepy-u2wg2uXJbHzkXkPphr)
+![](https://github.com/AryaJulianda/RECIPE-FE/demo_mama_recipe.gif)
 
 
 ## 🍻 Contributing
