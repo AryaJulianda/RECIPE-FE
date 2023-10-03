@@ -74,25 +74,8 @@ VITE_SERVER_URL=[Your BE URL]
 
 ```
 
-
-
-
-
-
-
-## Screenshot
-
-| Login Page | Register Page |
-| ------------- | ------------- |
-| ![Login](/public/images/screenshoot/login.png?raw=true "Login Page") | ![Register](/public/images/screenshoot/register.png?raw=true "Register Page")|
-
-| Home Page  | Search Page |
-| ------------- | ------------- |
-| ![Landing](/public/images/screenshoot/Home%20Page.png?raw=true "Landing Page") | ![Search Page](/public/images/screenshoot/search.png?raw=true "Recipe Detail Page") |
-
-| Profile Page | Add Recipe Page |
-| ------------- | ------------- |
-| ![Profile](/public/images/screenshoot/profile.png?raw=true "Profile Page") | ![Add Recipe](/public/images/screenshoot/add%20recipe.png?raw=true "Add Recipe Page") |
+## Recording
+![](https://gifyu.com/image/S6pMw)
 
 
 ## 🍻 Contributing
