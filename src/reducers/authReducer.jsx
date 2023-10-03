@@ -37,6 +37,14 @@ export const authReducer = (state=initialState,action) => {
         modalMessage:action.modalMessage,
         authLoading:false
       }
+    case 'LOGOUT':
+      console.log({action})
+      return {
+        ...state,
+        user: {},
+        isError:false,
+        authLoading:false
+      }
     case 'REGIST_SUCCESS':
       console.log(action)
       return {
@@ -58,11 +66,6 @@ export const authReducer = (state=initialState,action) => {
       return {
         ...state,showModal:true,modalMessage: action.modalMessage,
         authLoading:false
-      }
-      case 'PENDING':
-      console.log('loading...')
-      return {
-        ...state,authLoading:true
       }
     case 'UPDATE_USER_SUCCESS':
       // console.log(action.payload)

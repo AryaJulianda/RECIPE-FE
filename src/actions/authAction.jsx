@@ -22,13 +22,13 @@ export const login = (inputData,navigate) => async(dispatch) => {
   }
 }
 
-export const regist = (inputData) => async(dispatch) => {
+export const regist = (inputData,navigate) => async(dispatch) => {
   try {
     dispatch({type:'REGIST_PENDING'})
     const response = await axios.post(url+`/auth/register`,inputData);
     console.log('regist success',inputData);
-    dispatch({type:'REGIST_SUCCESS',payload:response.data,modalMessage:{header:'You are all set!',text:'Please check your email account for verification'}});
-    // navigate('/');
+    dispatch({type:'REGIST_SUCCESS',payload:response.data,modalMessage:{header:'You are all set!',text:'Please login'}});
+    navigate('/login');
   } catch (error) {
     console.log('regist failed',inputData,error)
     dispatch({type:'REGIST_FAILED',error:error.response.data.message,modalMessage:{header:'Regist failed!',text:error.response.data.message}});

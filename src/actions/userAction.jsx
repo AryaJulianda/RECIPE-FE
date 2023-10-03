@@ -5,7 +5,7 @@ const url = import.meta.env.VITE_SERVER_URL;
 export const updateUser = (user,inputData) => async(dispatch) => {
   const {user_id} = user
   try {
-    dispatch({type:'PENDING'})
+    dispatch({type:'LOGIN_PENDING'})
     const response = await axios.put(url+'/user/edit/'+user_id,inputData,{
       headers:{
         Authorization:`Bearer ${localStorage.getItem('access_token')}`,

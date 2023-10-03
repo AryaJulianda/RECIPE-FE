@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react"
 import { Link, useNavigate } from 'react-router-dom'
 import { connect, useDispatch, useSelector } from 'react-redux';
 import {login} from '../../../actions/authAction';
-import ModalComponent from '../../../components/Modal/Modal';
+import Modal from '../../../components/Modal/Modal';
 import Loading from '../../../components/Loading/Loading'
 import './Login.css';
 
@@ -59,7 +59,7 @@ const Login = ({}) => {
                     </form>
                 </div>
                 <p className="singup-here text-center">Don't have an account? <Link to={'/regist'}>Sing up Here</Link></p>
-                <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
+                <Modal showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
             </main>
         </div>
         }</>

@@ -5,10 +5,11 @@ import Footer from "../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { updateUser } from "../../actions/userAction";
+import Loading from "../../components/Loading/Loading";
 
 const EditProfile = () => {
 
-  const {user} = useSelector((state)=> state.auth)
+  const {user,authLoading} = useSelector((state)=> state.auth)
   console.log(user)
   // const userId = user.user_id
     const dispatch = useDispatch()
@@ -59,35 +60,37 @@ const EditProfile = () => {
 
     const handleLogout = () => {
         localStorage.clear();
+        dispatch({type:'LOGOUT'})
         navigate('/')
     };
 
   return (
     <div>
-      <Navbar/>
-      <main>
-       
-        <div className="edit-photo-profile">
-            <div className="photo-profile" style={{ backgroundImage: `url(${showPhoto === null ? 'https://res.cloudinary.com/dgwlgaxtm/image/upload/v1692137796/qszxjbs1rkjigjcrdqs1.jpg' : showPhoto})`}} ></div>
-            <label htmlFor="file-upload" className="label-file-upload" style={{textAlign:'center'}}>Change Photo Profile</label>
-            <input type="file" id="file-upload" onChange={(e) => handleChangeImage(e)}/>
-        </div>
-   
-        <form action="" className="form-edit-profile">
-            <div className="input-field">
-                <label htmlFor="inputEmail" className="form-label">Name</label>
-                <input name='username' type="text" className="form-control" id="inputName" placeholder="Name" value={inputUser.username} onChange={handleChange}/>
+        {authLoading ? <Loading /> : <>
+        <Navbar/>
+        <main>
+        
+            <div className="edit-photo-profile">
+                <div className="photo-profile" style={{ backgroundImage: `url(${showPhoto === null ? 'https://res.cloudinary.com/dgwlgaxtm/image/upload/v1692137796/qszxjbs1rkjigjcrdqs1.jpg' : showPhoto})`}} ></div>
+                <label htmlFor="file-upload" className="label-file-upload" style={{textAlign:'center'}}>Change Photo Profile</label>
+                <input type="file" id="file-upload" onChange={(e) => handleChangeImage(e)}/>
             </div>
-            <div className="input-field">
-                <label htmlFor="inputPassword" className="form-label">Email</label>
-                <input type="email" className="form-control" id="inputEmail" placeholder="Email" value={user?.email} readOnly/>
-            </div>
-            <button className="update-button" type="button" onClick={handleSubmit}>Update</button>
-            <p className="change-password">Change Password? <a href="">Click Here</a></p>
-            <button className="logout-button" type="button" onClick={handleLogout}>Logout</button>
-        </form>
-    </main>
-    <Footer/>
+    
+            <form action="" className="form-edit-profile">
+                <div className="input-field">
+                    <label htmlFor="inputEmail" className="form-label">Name</label>
+                    <input name='username' type="text" className="form-control" id="inputName" placeholder="Name" value={inputUser.username} onChange={handleChange}/>
+                </div>
+                <div className="input-field">
+                    <label htmlFor="inputPassword" className="form-label">Email</label>
+                    <input type="email" className="form-control" id="inputEmail" placeholder="Email" value={user?.email} readOnly/>
+                </div>
+                <button className="update-button" type="button" onClick={handleSubmit}>Update</button>
+                <p className="change-password">Change Password? <a href="">Click Here</a></p>
+                <button className="logout-button" type="button" onClick={handleLogout}>Logout</button>
+            </form>
+        </main>
+        <Footer/></>}
     </div>
   )
 };

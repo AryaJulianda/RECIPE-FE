@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import {useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import ModalComponent from '../../../components/Modal/Modal';
+import Modal from '../../../components/Modal/Modal';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import {login,regist}  from '../../../actions/authAction';
 import Loading from '../../../components/Loading/Loading'
@@ -25,7 +25,7 @@ const Regist = ({regist}) => {
         if(!isUsernameValid(inputData.username)) return dispatch({type:'SHOW_MODAL',modalMessage:{text:'Username is required',header:'Regist Failed'}})
         if(!isEmailValid(inputData.email)) return dispatch({type:'SHOW_MODAL',modalMessage:{text:'Email not valid',header:'Regist Failed'}})
         if(!isPasswordValid(inputData.password)) return dispatch({type:'SHOW_MODAL',modalMessage:{text:'Password must have at least 8 character',header:'Regist Failed'}})
-        regist(inputData);
+        regist(inputData,navigate);
     }
 
     const onChange = (e) => {
@@ -88,7 +88,7 @@ const Regist = ({regist}) => {
         </div>
         <p className="login-here text-center">Already have account? <Link to={'/login'}>Log in Here</Link></p>
         
-        <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
+        <Modal showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
     </section>
     }</>
         
