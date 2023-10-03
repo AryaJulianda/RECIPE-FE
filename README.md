@@ -76,7 +76,6 @@ VITE_SERVER_URL=[Your BE URL]
 
 ## 📹 Recording
 ![](https://github.com/AryaJulianda/RECIPE-FE/blob/main/demo_mama_recipe.gif)
-<img src="https://github.com/AryaJulianda/RECIPE-FE/blob/main/demo_mama_recipe.gif" alt="Computer man" style="width:80%;">
 
 ## 🍻 Contributing
 
