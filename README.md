@@ -75,7 +75,7 @@ VITE_SERVER_URL=[Your BE URL]
 ```
 
 ## Recording
-![](https://gifyu.com/image/S6pMw)
+![](https://giphy.com/clips/studiosoriginals-sleep-tired-sleepy-u2wg2uXJbHzkXkPphr)
 
 
 ## 🍻 Contributing
