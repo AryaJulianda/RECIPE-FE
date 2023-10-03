@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-
+import '../../components/Main.css'
 import Navbar from "../../components/Navbar/Navbar";
 import FormAddRecipe from "../../components/FormRecipe/FormAddRecipe";
 import Footer from '../../components/Footer/Footer';

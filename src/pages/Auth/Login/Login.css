@@ -98,6 +98,12 @@ form
 }
 
 form
+.login-button:disabled {
+    background: #be9e0c;
+    color: #ffffff;
+}
+
+form
 .login-button:hover {
     background-color: #EFC81A;
     color: #000;

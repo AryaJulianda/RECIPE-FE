@@ -1,6 +1,6 @@
 /* Add Image */
 .form-add-recipe {
-    margin:0 auto;
+    margin:40px auto;
     width: 100%;
     text-align: center;
 }
@@ -15,6 +15,7 @@
     justify-content: center;
     align-items: center;
     margin:auto;
+    z-index: 1;
 }
 
 .add-image img {
@@ -40,6 +41,11 @@ input[type="file"] {
     font-weight: 500;
     line-height: normal;
     background-color: #67e711;
+    border: none;
+}
+.add-image .label-file-upload:hover {
+    color: #67e711;
+    border: none;
 }
 
 .add-image input:hover {
@@ -118,8 +124,8 @@ input[type="file"] {
 @media only screen and (min-width: 992px) and (max-width: 1280px){
     /* Add Image */
     .form-add-recipe {
-        margin:0 auto;
-        width: 100%;
+        margin:20px auto;
+        width: 90%;
     }
 
     .add-image {
@@ -153,8 +159,7 @@ input[type="file"] {
     }
 
     #title-form{
-        margin-top:40px ;
-        width: 100%;
+        margin-top:20px ;
         border-radius: 15px;
         font-size: 18px;
         font-weight: 500;
@@ -162,7 +167,7 @@ input[type="file"] {
     }
 
     #form-ingredients {
-        margin-top: 40px;
+        margin-top: 20px;
         width: 100%;
         height: 380px;
         border-radius: 15px;
@@ -174,7 +179,7 @@ input[type="file"] {
         width: fit-content;
         border-radius: 15px;
         font-size: 18px;
-        margin-top: 40px;
+        margin-top: 20px;
         padding: 20px;
     }
 
@@ -191,8 +196,8 @@ input[type="file"] {
 @media only screen and  (max-width: 991px) {
     /* Add Image */
     .form-add-recipe {
-        margin:0 auto;
-        width: 100%;
+        margin:20px auto;
+        width: 90%;
     }
 
     .add-image {
@@ -226,7 +231,7 @@ input[type="file"] {
     }
 
     #title-form{
-        margin-top:40px ;
+        margin-top:20px ;
         width: 100%;
         border-radius: 15px;
         font-size: 18px;
@@ -235,7 +240,7 @@ input[type="file"] {
     }
 
     #form-ingredients {
-        margin-top: 40px;
+        margin-top: 20px;
         width: 100%;
         height: 380px;
         border-radius: 15px;
@@ -247,7 +252,7 @@ input[type="file"] {
         width: fit-content;
         border-radius: 15px;
         font-size: 18px;
-        margin-top: 40px;
+        margin-top: 20px;
         padding: 20px;
     }
 
@@ -264,7 +269,7 @@ input[type="file"] {
 @media only screen and (max-width: 576px){
     /* Add Image */
     .form-add-recipe {
-        margin:0 auto;
+        margin:20px auto;
         width: 100%;
     }
 

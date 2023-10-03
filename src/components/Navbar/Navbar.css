@@ -11,6 +11,7 @@
     background: white;
     position: fixed;
     box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.1);
+    z-index: 99;
 
 }
 
@@ -246,6 +247,7 @@
         background-color: #fff;
         display: flex;
         flex-direction: column;
+        z-index: 100;
     }
     .close {
         width: 24px;

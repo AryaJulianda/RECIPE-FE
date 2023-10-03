@@ -57,6 +57,11 @@ const EditProfile = () => {
         setPhotoProfile(file);
     }
 
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/')
+    };
+
   return (
     <div>
       <Navbar/>
@@ -79,6 +84,7 @@ const EditProfile = () => {
             </div>
             <button className="update-button" type="button" onClick={handleSubmit}>Update</button>
             <p className="change-password">Change Password? <a href="">Click Here</a></p>
+            <button className="logout-button" type="button" onClick={handleLogout}>Logout</button>
         </form>
     </main>
     <Footer/>

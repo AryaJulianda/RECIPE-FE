@@ -12,7 +12,8 @@ const FormAddRecipe = ({recipe,onChange,onSubmit,recipeImage,handleChangeImage,s
         
             <input type="text" className="form-control" id="title-form" placeholder="Title" name='title' value={recipe.title} onChange={onChange} />
 
-            <textarea className="form-control" id="form-ingredients" placeholder="Ingredients" name="ingredients" value={recipe.ingredients} onChange={onChange} ></textarea>
+            <textarea className="form-control" id="form-ingredients" placeholder={`Ingredients 
+use "," to write the list of ingredients (example: flour, egg, water, salt, etc..)`} name="ingredients" value={recipe.ingredients} onChange={onChange} ></textarea>
 
             {/* <input type="text" className="form-control" id="form-category" placeholder="Category" onChange={onChange} /> */}
             <select className="form-control" id="form-category" onChange={(e) => setCategoryId(e.target.value)}>;

@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-
+import '../../components/Main.css'
 import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import SearchBar from "../../components/SearchBar/SearchBar";

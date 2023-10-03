@@ -9,7 +9,8 @@ import './Regist.css';
 
 const Regist = ({regist}) => {
 
-    const {showModal,modalMessage,isLoading} = useSelector((state) => state.auth)
+    const {showModal,modalMessage,authLoading} = useSelector((state) => state.auth)
+    const [isChecked, setIsChecked] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -21,6 +22,9 @@ const Regist = ({regist}) => {
 
     const postData = (e) => {
         e.preventDefault()
+        if(!isUsernameValid(inputData.username)) return dispatch({type:'SHOW_MODAL',modalMessage:{text:'Username is required',header:'Regist Failed'}})
+        if(!isEmailValid(inputData.email)) return dispatch({type:'SHOW_MODAL',modalMessage:{text:'Email not valid',header:'Regist Failed'}})
+        if(!isPasswordValid(inputData.password)) return dispatch({type:'SHOW_MODAL',modalMessage:{text:'Password must have at least 8 character',header:'Regist Failed'}})
         regist(inputData);
     }
 
@@ -33,10 +37,24 @@ const Regist = ({regist}) => {
     const handleCloseModal = () => {
         dispatch({type:"CLOSE_MODAL"})
     }
-    console.log({showModal})
+    // console.log({showModal})
 
+    const isEmailValid = (email) => {
+        const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+        return emailRegex.test(email);
+    };
+      
+    const isPasswordValid = (password) => {
+    return password.length >= 8;
+    };
+
+    const isUsernameValid = (username) => {
+    return username.length >= 1;
+    };
+
+    console.log({modalMessage})
   return (
-    // <>{isLoading? <Loading/> :
+    <>{authLoading? <Loading/> :
     <section className="regist">
 
         <header>
@@ -58,13 +76,13 @@ const Regist = ({regist}) => {
                 </div>
                 <div className="mb-3 input-field">
                     <label htmlFor="inputPassword" className="form-label d-block">Password</label>
-                    <input type="password" name="password" value={inputData.password} onChange={onChange} className="form-input" id="inputPassword" placeholder="Password" />
+                    <input type="password" name="password" value={inputData.password} onChange={onChange} className="form-input" id="inputPassword" placeholder="Password"/>
                 </div>
                 <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="check" />
+                    <input type="checkbox" className="form-check-input" id="check" checked={isChecked} onChange={()=> setIsChecked(!isChecked)}/>
                     <label className="form-check-label" htmlFor="check">I agree to terms & conditions</label>
                 </div>
-                <button className="btn regist-button" type="button" data-bs-toggle="modal" data-bs-target="#verifModal" onClick={postData} >Register Account</button>
+                <button className="btn regist-button" type="button" data-bs-toggle="modal" data-bs-target="#verifModal" onClick={postData} disabled={!isChecked}>Register Account</button>
                 <p className="forgot-password">Forgot your Password <a href="#">Click Here</a></p>
             </form>
         </div>
@@ -72,7 +90,7 @@ const Regist = ({regist}) => {
         
         <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
     </section>
-    // }</>
+    }</>
         
   )
 };

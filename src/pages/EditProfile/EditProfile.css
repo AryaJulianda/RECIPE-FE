@@ -74,21 +74,37 @@
   margin-bottom: 20px;
 }
 
+.logout-button,
 .form-edit-profile .update-button {
   width: 426px;
   padding: 20px;
   flex-shrink: 0;
   border-radius: 6px;
-  background: #EFC81A;
   border:none;
-  color: #FFF;
   text-align: center;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   margin-top: 45px;
+}
+
+.form-edit-profile .update-button {
+  background: #EFC81A;
+  color: #FFF;
   border:2px solid #EFC81A
+}
+
+.logout-button {
+  background: salmon;
+  color: #FFF;
+  border:2px solid salmon;
+}
+
+.logout-button:hover {
+  color: salmon;
+  background-color: #FFF;
+  border:2px solid salmon;
 }
 
 .change-password {
@@ -158,6 +174,7 @@
     margin-bottom: 16px;
   }
 
+  .logout-button,
   .form-edit-profile .update-button {
     width: 426px;
     padding: 18px;
@@ -220,6 +237,7 @@
     margin-bottom: 16px;
   }
 
+  .logout-button,
   .form-edit-profile .update-button {
     width: 426px;
     padding: 18px;
@@ -284,6 +302,7 @@
     margin-bottom: 6px;
   }
 
+  .logout-button,
   .form-edit-profile .update-button {
     width: 326px;
     padding: 13px;

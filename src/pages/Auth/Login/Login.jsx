@@ -8,7 +8,7 @@ import './Login.css';
 
 const Login = ({}) => {
 
-    const {showModal,modalMessage} = useSelector((state) => state.auth)
+    const {authLoading,showModal,modalMessage} = useSelector((state) => state.auth)
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [inputData, setInputData] = useState({
@@ -31,9 +31,10 @@ const Login = ({}) => {
         console.log('harusnya nutup')
     }
 
+    const areAllInputsFilled = inputData.email.trim() !== '' && inputData.password.trim() !== '';
 
     return (
-        // <>{isLoading? <Loading /> :
+        <>{authLoading? <Loading /> :
         <div>
             <main>
                 <header>
@@ -53,7 +54,7 @@ const Login = ({}) => {
                             <label htmlFor="inputPassword" className="form-label d-block">Password</label>
                             <input type="password" name='password' value={inputData.password} className="form-input" id="inputPassword" placeholder="Password" onChange={onChange} />
                         </div>
-                        <button type="button" className="btn login-button mt-4" data-bs-toggle="modal" data-bs-target="#verifModal" onClick={postData} >Login</button>
+                        <button type="button" className="btn login-button mt-4" data-bs-toggle="modal" data-bs-target="#verifModal" onClick={postData} disabled={!areAllInputsFilled}>Login</button>
                         <p className="forgot-password">Forgot your Password <a href="#">Click Here</a></p>
                     </form>
                 </div>
@@ -61,7 +62,7 @@ const Login = ({}) => {
                 <ModalComponent showModal={showModal} handleCloseModal={handleCloseModal} modalMessage={modalMessage}/>
             </main>
         </div>
-        // }</>
+        }</>
 
     )
 };

@@ -2,7 +2,7 @@ const initialState = {
   user: {},
   accessToken: null,
   refreshToken:null,
-  isLoading:false,
+  authLoading:false,
   isError:false,
   error:null,
   showModal:false,
@@ -11,10 +11,12 @@ const initialState = {
 
 export const authReducer = (state=initialState,action) => {
   switch (action.type) {
-    case 'LOGIN_PENDING' || 'REGIST_PENDING':
+    case 'LOGIN_PENDING' :
+    case 'REGIST_PENDING' :
+    
       console.log('loading...')
       return {
-        ...state,isLoading:true
+        ...state,authLoading:true
       }
     case 'LOGIN_SUCCESS':
       // console.log(action.payload)
@@ -23,7 +25,7 @@ export const authReducer = (state=initialState,action) => {
         user: action.payload.user,
         accessToken : action.payload.accessToken,
         refreshToken: action.payload.refreshToken,
-        isLoading:false
+        authLoading:false
       }
     case 'LOGIN_FAILED':
       console.log({error:action.error})
@@ -33,7 +35,7 @@ export const authReducer = (state=initialState,action) => {
         isError:true,
         showModal:true,
         modalMessage:action.modalMessage,
-        isLoading:false
+        authLoading:false
       }
     case 'REGIST_SUCCESS':
       console.log(action)
@@ -44,23 +46,23 @@ export const authReducer = (state=initialState,action) => {
         refreshToken: action.payload.refreshToken,
         showModal:true,
         modalMessage:action.modalMessage,
-        isLoading:false
+        authLoading:false
       }
     case 'REGIST_FAILED':
       // console.log(action.modalMessage,action.error)
       return {
-        ...state,error:action.error,isError:true,user:null,isLoading:false,
+        ...state,error:action.error,isError:true,user:null,authLoading:false,
         showModal: true,modalMessage:action.modalMessage,
       }
     case 'ACTIVATION_SUCCESS':
       return {
         ...state,showModal:true,modalMessage: action.modalMessage,
-        isLoading:false
+        authLoading:false
       }
       case 'PENDING':
       console.log('loading...')
       return {
-        ...state,isLoading:true
+        ...state,authLoading:true
       }
     case 'UPDATE_USER_SUCCESS':
       // console.log(action.payload)
@@ -68,7 +70,7 @@ export const authReducer = (state=initialState,action) => {
       return {
         ...state,
         user: action.payload,
-        isLoading:false
+        authLoading:false
       }
     case 'UPDATE_USER_FAILED':
       // console.log(action.error)
@@ -78,8 +80,13 @@ export const authReducer = (state=initialState,action) => {
         isError:true,
         showModal:true,
         modalMessage:action.modalMessage,
-        isLoading:false
+        authLoading:false
       }
+    case 'SHOW_MODAL':
+      console.log(action.modalMessage)
+      return {
+        ...state,showModal: true,modalMessage:action.modalMessage
+      } 
     case 'CLOSE_MODAL':
       return {
         ...state,showModal: false,

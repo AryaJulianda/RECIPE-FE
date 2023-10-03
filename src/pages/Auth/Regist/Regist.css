@@ -98,6 +98,12 @@ form
     margin-top: 15px;
 }
 
+form
+.regist-button:disabled {
+    background: #af9318;
+    color: #fff;
+}
+
 .regist-form
 .regist-button:hover {
     background-color: #EFC81A;
