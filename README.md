@@ -17,7 +17,12 @@
 
 
 <!-- ABOUT THE PROJECT -->
-
+## 👨‍💻 Tester Acount
+In Mama Recipe You can create your new acount. But if you want to use the exist acount, you can use this 
+```
+email : Nico@gmail.com
+password : Nico
+```
 ## ✏️ About
 Mama Recipe is an application to help you cook delicious and simple meals. Mama Recipe is a web-based recipe sharing application that allow user to share their recipe. In this app, user could take a look into recipe including it's ingredients.
 
@@ -93,7 +98,7 @@ Contributions are what make the open source community such an amazing place to b
 * [`RECIPE BE`](https://github.com/AryaJulianda/RECIPE-BE)
 
 
-### 👨‍💻 Author
+### 🤖 Author
 
 * **Arya Julianda**
 
