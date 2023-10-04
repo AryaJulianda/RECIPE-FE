@@ -23,7 +23,7 @@ const DataRecipe = ({recipe}) => {
             </div>
             <div className="identity">
                 <div className="author">
-                    <div className="author-photo" style={{backgroundImage:(`url(${recipe.author_photo})`)}}/>
+                    <div className="author-photo" style={{backgroundImage:(`url(${recipe.author_photo ? recipe.author_photo : "/img/default-photo-profile.jpg"})`)}}/>
                     <p className="author-name">{recipe.author}</p>
                 </div>
                 <div className="icon">
