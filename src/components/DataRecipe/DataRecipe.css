@@ -95,21 +95,19 @@
     
 }
 
-.icon .button {
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
-    padding: 8px;
-    margin-right: 10px;
+.icon {
+    gap: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.icon .like-btn,
+.icon .bookmark-btn {
     cursor: pointer;
-}
-
-.icon .like {
-    background-color: #eec302;
-}
-
-.icon .bookmark {
-    border: 4px solid #eec302;
+    margin: 0;
+    width: 60px;
+    border-radius: 12px;
 }
 
 /* comment  */
@@ -256,16 +254,14 @@
         
     }
     
-    .icon .button {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-        padding: 7px;
-        margin-right: 10px;
+    .icon {
+        gap: 10px;
     }
     
-    .icon .bookmark {
-        border: 4px solid #eec302;
+    .icon .like-btn,
+    .icon .bookmark-btn {
+        width: 50px;
+        border-radius: 10px;
     }
     
     /* comment  */
@@ -387,16 +383,14 @@
         
     }
     
-    .icon .button {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-        padding: 7px;
-        margin-right: 10px;
+    .icon {
+        gap: 10px;
     }
     
-    .icon .bookmark {
-        border: 4px solid #eec302;
+    .icon .like-btn,
+    .icon .bookmark-btn {
+        width: 50px;
+        border-radius: 10px;
     }
     
     /* comment  */
@@ -522,16 +516,14 @@
         font-size: 18px;
     }
     
-    .icon .button {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        padding: 3px;
-        margin-right: 10px;
+    .icon {
+        gap: 5px;
     }
     
-    .icon .bookmark {
-        border: 2px solid #eec302;
+    .icon .like-btn,
+    .icon .bookmark-btn {
+        width: 40px;
+        border-radius: 8px;
     }
     
     /* comment  */

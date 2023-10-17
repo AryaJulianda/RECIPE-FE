@@ -11,7 +11,7 @@ const Cards = ({ recipes,onClick}) => {
                         <div className="right-card">  
                             <h5 className="card-title">{recipe.title}</h5>
                             <p className="card-ingredients">Ingredients: <br />{recipe.ingredients}</p>
-                            <div className="card-stats">0 Like - 0 Comment - 0 Bookmark</div>
+                            <div className="card-stats">{recipe.like_count} Like - 0 Comment - 0 Bookmark</div>
                             <div className="card-author">
                                 {/* <div className='author-photo' style={{backgroundImage:`url("${recipe.author_photo}")`}} /> */}
                                 <div className='author-photo' style={{backgroundImage:`url("${recipe?.author_photo === null ? 'https://res.cloudinary.com/dgwlgaxtm/image/upload/v1692137796/qszxjbs1rkjigjcrdqs1.jpg' : recipe.author_photo}")`}} />

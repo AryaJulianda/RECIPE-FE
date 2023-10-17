@@ -27,8 +27,8 @@ const DataRecipe = ({recipe}) => {
                     <p className="author-name">{recipe.author}</p>
                 </div>
                 <div className="icon">
-                    <img className="button bookmark" src='/img/bookmark.svg'/>
-                    <img className="button like" src='/img/like2.svg' />
+                    <img className="bookmark-btn" src='/img/bookmark-btn-plan.svg' />
+                    <img className="like-btn" src='/img/like-btn-plan.svg' />
                 </div>
             </div>
 

@@ -44,6 +44,12 @@ const Login = ({}) => {
                     <h3>Login in into your exist account</h3>
                 </header>
 
+                <div className="demo">
+                    <p className="demo-head">Demo Acount</p>
+                    <p className="demo-email">Email : tester@gmail.com</p>
+                    <p className="demo-pw">Password : tester123</p>
+                </div>
+
                 <div className="login-form">
                     <form action="">
                         <div className="mb-3 input-field">

@@ -32,6 +32,22 @@ header h3 {
     line-height: 28px;
 }
 
+.demo {
+    width: 426px;
+    padding: 10px;
+    text-align: center;
+    background: #fff;
+    margin:auto;
+    border-radius: 10px;
+    border: 2px solid #EFC81A;
+}
+
+.demo * {
+    color: #EFC81A;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
 /* form */
 .login-form {
     width: fit-content;
@@ -146,6 +162,13 @@ form
 /* @media only screen and (min-width: 992px) and (max-width: 1280px) {}
     @media only screen and  (max-width: 991px) {} */
 @media only screen and (max-width: 576px) {
+    .demo {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid #EFC81A;
+    }
+
     .login-form {
         width: 100%;
     }
